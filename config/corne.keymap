@@ -1,10 +1,4 @@
 #define CONFIG_WIRELESS
-
-/*
- * Urob's core layout is 34 keys. On the Chocofi's 36-key physical layout,
- * the two outer thumb keys type reusable reasoning prompts. Pressing both
- * outer thumbs together types the structured execution-planning prompt.
- */
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                   \
     ZMK_LAYER(                                                                 \
         name,                                                                  \
@@ -18,8 +12,4 @@
 #include "base.keymap"
 #include "prompts.dtsi"
 
-/ {
-  chosen {
-    zmk,physical-layout = &foostan_corne_5col_layout;
-  };
-};
+/{ chosen { zmk,physical-layout = &foostan_corne_5col_layout; }; };
