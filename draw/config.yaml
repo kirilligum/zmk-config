@@ -25,6 +25,9 @@ parse_config:
     "&kp LG(LC(RIGHT))": NDesk
     "&kp LG(LC(LS(A)))": PinA.
     "&kp LG(LC(LS(Q)))": PinW.
+    "&kp C_BRI_UP": Brightness ↑
+    "&kp C_BRI_DN": Brightness ↓
+    "&kp LG(P)": Displays
 
     "&swapper": NWin
     "&kp LS(TAB)": PWin
@@ -63,7 +66,6 @@ parse_config:
   trans_legend: { "t": "", "type": "trans" }
 
   zmk_combos:
-    prompt_both_combo: { align: bottom, o: 0.35 }
     combo_cut: { align: bottom, o: 0.15 }
     combo_ldrsh: { align: top, o: 1.35 }
 
@@ -203,8 +205,9 @@ draw_config:
         --color-nav:          #a66400;
         --color-num:          #ba4e00;
         --color-sys:          #27755f;
-        --color-prompt-left:  #7357bd;
-        --color-prompt-right: #087f8f;
+        --color-prompt-reason:   #7357bd;
+        --color-prompt-plan:     #a66400;
+        --color-prompt-abstract: #087f8f;
 
         fill: var(--color-text);
         background-color: var(--color-bg);
@@ -253,7 +256,9 @@ draw_config:
     text.bl, use.bl { fill: var(--color-num); }
     text.br, use.br { fill: var(--color-sys); }
 
-    .keypos-30 text.tap  { fill: var(--color-prompt-left); font-size: 13px; }
+    .layer-Fn .keypos-4 text.tap  { fill: var(--color-prompt-abstract); font-size: 11px; }
+    .layer-Fn .keypos-14 text.tap { fill: var(--color-prompt-reason); font-size: 12px; }
+    .layer-Fn .keypos-24 text.tap { fill: var(--color-prompt-plan); font-size: 12px; }
     .keypos-31 text.hold { fill: var(--color-nav); }
     .keypos-32 text.hold { fill: var(--color-fn); }
     .keypos-33 text.hold { fill: var(--color-num); font-size: 15px; }

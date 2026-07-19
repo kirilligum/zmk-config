@@ -1,0 +1,6 @@
+menuconfig ZMK_BEHAVIOR_CANCELABLE_TEXT
+    bool "Cancelable text behavior"
+    default y
+    help
+      Type configured text at a fixed rate. Pressing any cancelable text
+      behavior while one is active stops the current text immediately.

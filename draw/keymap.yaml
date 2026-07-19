@@ -31,12 +31,12 @@ layers:
     - {t: ',', s: ;}
     - {t: ., s: ':'}
     - {t: '?', s: '!'}
-    - Reason
+    - Bspc
     - {t: Spc, h: Nav, s: Sentence}
     - {t: Enter, h: Fn}
     - {t: Smart, h: Num}
     - {t: Magic, h: Shift}
-    - Abstract
+    - Tab
   Nav:
     - Close
     - {type: trans}
@@ -68,49 +68,49 @@ layers:
     - {type: trans}
     - {type: trans}
     - {type: trans}
-    - Reason
+    - Bspc
     - {type: held}
     - {type: trans}
     - {type: trans}
     - Cancel
-    - Abstract
+    - Tab
   Fn:
     - F12
     - F7
     - F8
     - F9
-    - {type: trans}
+    - Abstract
     - {type: trans}
     - $$mdi:skip-backward$$
     - $$mdi:volume-high$$
     - $$mdi:skip-forward$$
-    - {type: trans}
+    - Brightness ↑
     - {t: F11, h: Gui}
     - {t: F4, h: Alt}
     - {t: F5, h: Shift}
     - {t: F6, h: Ctrl}
-    - {type: trans}
+    - Reason
     - {type: trans}
     - {t: PDesk, h: Ctrl}
     - {t: '$$mdi:volume-medium$$', h: Shift}
     - {t: NDesk, h: Alt}
-    - {type: trans}
+    - Brightness ↓
     - F10
     - F1
     - F2
     - F3
-    - {type: trans}
+    - Plan
     - PinA.
     - PinW.
     - Alt+`
     - {type: trans}
-    - {type: trans}
-    - Reason
+    - Displays
+    - Bspc
     - {type: trans}
     - {type: held}
     - $$mdi:volume-off$$
     - $$mdi:play-pause$$
-    - Abstract
+    - Tab
   Num:
     - {type: trans}
     - '7'
@@ -142,12 +142,12 @@ layers:
     - {type: trans}
     - {type: trans}
     - {type: trans}
-    - Reason
+    - Bspc
     - {type: trans}
     - {type: trans}
     - {type: held}
     - {type: trans}
-    - Abstract
+    - Tab
   Sys:
     - BT 1
     - BT 2
@@ -179,12 +179,12 @@ layers:
     - {type: trans}
     - {type: trans}
     - {type: trans}
-    - Reason
+    - Bspc
     - {type: trans}
     - {type: held}
     - {type: held}
     - {type: trans}
-    - Abstract
+    - Tab
   Mouse:
     - {type: trans}
     - {type: trans}
@@ -216,12 +216,12 @@ layers:
     - Middle Click
     - Right Click
     - {type: trans}
-    - Reason
+    - Bspc
     - {type: trans}
     - {type: trans}
     - Scroll ↑
     - Scroll ↓
-    - Abstract
+    - Tab
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:
@@ -335,8 +335,3 @@ combos:
   - p: [18, 28]
     k: '|'
     l: [Combos]
-  - p: [30, 35]
-    k: Plan
-    l: [Combos]
-    a: bottom
-    o: 0.35

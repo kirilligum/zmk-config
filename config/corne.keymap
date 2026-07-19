@@ -5,7 +5,7 @@
                  LT RT                                                         \
                  LM RM                                                         \
                  LB RB                                                         \
-        &prompt_reasoning LH RH &prompt_execution                              \
+        &kp BSPC LH RH &kp TAB                                                 \
     )
 
 #include "zmk-helpers/key-labels/36.h"

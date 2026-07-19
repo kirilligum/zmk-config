@@ -1,194 +1,39 @@
 /*
- * Host-independent prompt macros.
+ * Host-independent, cancelable prompt behaviors.
  *
  * They type into the focused text field but deliberately do not send Enter.
- * Paragraph breaks from the combined prompt are represented as spaces so a
- * terminal composer cannot submit the first paragraph prematurely.
+ * Press any prompt key while one is running to stop it immediately.
  *
  * Exact output:
- *   Left:  Wait, check your reasoning, do you see any flaws or better alternatives?
- *   Right: Take a step back. Formulate a broader, more abstract version of my question that captures the core mechanics of the problem without any of my specific details. Answer that abstract question first, then use that foundational knowledge to solve my specific request
- *   Both:  Identify the specific missing variables, unstated assumptions, or system constraints required to execute this flawlessly. Ask for my input on them using high-SNR context. Generate 2 to 5 materially distinct execution paths (A, B, C, D, E), ranking them strictly from highest long-term structural value to highest short-term immediate utility. For each path, explicitly define the primary trade-off being made. Finally, declare your definitive recommendation, and state the exact condition or new piece of information that would force you to change this recommendation
+ *   Reason:   Wait, check your reasoning, do you see any flaws or better alternatives?
+ *   Abstract: Take a step back. Formulate a broader, more abstract version of my question that captures the core mechanics of the problem without any of my specific details. Answer that abstract question first, then use that foundational knowledge to solve my specific request
+ *   Plan:     Identify the specific missing variables, unstated assumptions, or system constraints required to execute this flawlessly. Ask for my input on them using high-SNR context. Generate 2 to 5 materially distinct execution paths (A, B, C, D, E), ranking them strictly from highest long-term structural value to highest short-term immediate utility. For each path, explicitly define the primary trade-off being made. Finally, declare your definitive recommendation, and state the exact condition or new piece of information that would force you to change this recommendation
  */
 
 / {
-  macros {
+  behaviors {
     prompt_reasoning: prompt_reasoning {
-      compatible = "zmk,behavior-macro";
+      compatible = "kirill,behavior-cancelable-text";
       #binding-cells = <0>;
       wait-ms = <30>;
       tap-ms = <30>;
-      bindings = <
-        &kp LS(W) &kp A &kp I &kp T &kp COMMA &kp SPACE &kp C &kp H
-        &kp E &kp C &kp K &kp SPACE &kp Y &kp O &kp U &kp R
-        &kp SPACE &kp R &kp E &kp A &kp S &kp O &kp N &kp I
-        &kp N &kp G &kp COMMA &kp SPACE &kp D &kp O &kp SPACE &kp Y
-        &kp O &kp U &kp SPACE &kp S &kp E &kp E &kp SPACE &kp A
-        &kp N &kp Y &kp SPACE &kp F &kp L &kp A &kp W &kp S
-        &kp SPACE &kp O &kp R &kp SPACE &kp B &kp E &kp T &kp T
-        &kp E &kp R &kp SPACE &kp A &kp L &kp T &kp E &kp R
-        &kp N &kp A &kp T &kp I &kp V &kp E &kp S &kp QMARK
-      >;
+      text = "Wait, check your reasoning, do you see any flaws or better alternatives?";
     };
 
     prompt_execution: prompt_execution {
-      compatible = "zmk,behavior-macro";
+      compatible = "kirill,behavior-cancelable-text";
       #binding-cells = <0>;
       wait-ms = <30>;
       tap-ms = <30>;
-      bindings = <
-        &kp LS(T) &kp A &kp K &kp E &kp SPACE &kp A &kp SPACE &kp S
-        &kp T &kp E &kp P &kp SPACE &kp B &kp A &kp C &kp K
-        &kp DOT &kp SPACE &kp LS(F) &kp O &kp R &kp M &kp U &kp L
-        &kp A &kp T &kp E &kp SPACE &kp A &kp SPACE &kp B &kp R
-        &kp O &kp A &kp D &kp E &kp R &kp COMMA &kp SPACE &kp M
-        &kp O &kp R &kp E &kp SPACE &kp A &kp B &kp S &kp T
-        &kp R &kp A &kp C &kp T &kp SPACE &kp V &kp E &kp R
-        &kp S &kp I &kp O &kp N &kp SPACE &kp O &kp F &kp SPACE
-        &kp M &kp Y &kp SPACE &kp Q &kp U &kp E &kp S &kp T
-        &kp I &kp O &kp N &kp SPACE &kp T &kp H &kp A &kp T
-        &kp SPACE &kp C &kp A &kp P &kp T &kp U &kp R &kp E
-        &kp S &kp SPACE &kp T &kp H &kp E &kp SPACE &kp C &kp O
-        &kp R &kp E &kp SPACE &kp M &kp E &kp C &kp H &kp A
-        &kp N &kp I &kp C &kp S &kp SPACE &kp O &kp F &kp SPACE
-        &kp T &kp H &kp E &kp SPACE &kp P &kp R &kp O &kp B
-        &kp L &kp E &kp M &kp SPACE &kp W &kp I &kp T &kp H
-        &kp O &kp U &kp T &kp SPACE &kp A &kp N &kp Y &kp SPACE
-        &kp O &kp F &kp SPACE &kp M &kp Y &kp SPACE &kp S &kp P
-        &kp E &kp C &kp I &kp F &kp I &kp C &kp SPACE &kp D
-        &kp E &kp T &kp A &kp I &kp L &kp S &kp DOT &kp SPACE
-        &kp LS(A) &kp N &kp S &kp W &kp E &kp R &kp SPACE &kp T
-        &kp H &kp A &kp T &kp SPACE &kp A &kp B &kp S &kp T
-        &kp R &kp A &kp C &kp T &kp SPACE &kp Q &kp U &kp E
-        &kp S &kp T &kp I &kp O &kp N &kp SPACE &kp F &kp I
-        &kp R &kp S &kp T &kp COMMA &kp SPACE &kp T &kp H &kp E
-        &kp N &kp SPACE &kp U &kp S &kp E &kp SPACE &kp T &kp H
-        &kp A &kp T &kp SPACE &kp F &kp O &kp U &kp N &kp D
-        &kp A &kp T &kp I &kp O &kp N &kp A &kp L &kp SPACE
-        &kp K &kp N &kp O &kp W &kp L &kp E &kp D &kp G
-        &kp E &kp SPACE &kp T &kp O &kp SPACE &kp S &kp O &kp L
-      >, <&prompt_execution_2>;
-    };
-
-    prompt_execution_2: prompt_execution_2 {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <30>;
-      tap-ms = <30>;
-      bindings = <
-        &kp V &kp E &kp SPACE &kp M &kp Y &kp SPACE &kp S &kp P
-        &kp E &kp C &kp I &kp F &kp I &kp C &kp SPACE &kp R
-        &kp E &kp Q &kp U &kp E &kp S &kp T
-      >;
+      text = "Take a step back. Formulate a broader, more abstract version of my question that captures the core mechanics of the problem without any of my specific details. Answer that abstract question first, then use that foundational knowledge to solve my specific request";
     };
 
     prompt_both: prompt_both {
-      compatible = "zmk,behavior-macro";
+      compatible = "kirill,behavior-cancelable-text";
       #binding-cells = <0>;
       wait-ms = <30>;
       tap-ms = <30>;
-      bindings = <
-        &kp LS(I) &kp D &kp E &kp N &kp T &kp I &kp F &kp Y
-        &kp SPACE &kp T &kp H &kp E &kp SPACE &kp S &kp P &kp E
-        &kp C &kp I &kp F &kp I &kp C &kp SPACE &kp M &kp I
-        &kp S &kp S &kp I &kp N &kp G &kp SPACE &kp V &kp A
-        &kp R &kp I &kp A &kp B &kp L &kp E &kp S &kp COMMA
-        &kp SPACE &kp U &kp N &kp S &kp T &kp A &kp T &kp E
-        &kp D &kp SPACE &kp A &kp S &kp S &kp U &kp M &kp P
-        &kp T &kp I &kp O &kp N &kp S &kp COMMA &kp SPACE &kp O
-        &kp R &kp SPACE &kp S &kp Y &kp S &kp T &kp E &kp M
-        &kp SPACE &kp C &kp O &kp N &kp S &kp T &kp R &kp A
-        &kp I &kp N &kp T &kp S &kp SPACE &kp R &kp E &kp Q
-        &kp U &kp I &kp R &kp E &kp D &kp SPACE &kp T &kp O
-        &kp SPACE &kp E &kp X &kp E &kp C &kp U &kp T &kp E
-        &kp SPACE &kp T &kp H &kp I &kp S &kp SPACE &kp F &kp L
-        &kp A &kp W &kp L &kp E &kp S &kp S &kp L &kp Y
-        &kp DOT &kp SPACE &kp LS(A) &kp S &kp K &kp SPACE &kp F &kp O
-        &kp R &kp SPACE &kp M &kp Y &kp SPACE &kp I &kp N &kp P
-        &kp U &kp T &kp SPACE &kp O &kp N &kp SPACE &kp T &kp H
-        &kp E &kp M &kp SPACE &kp U &kp S &kp I &kp N &kp G
-        &kp SPACE &kp H &kp I &kp G &kp H &kp MINUS &kp LS(S) &kp LS(N)
-        &kp LS(R) &kp SPACE &kp C &kp O &kp N &kp T &kp E &kp X
-        &kp T &kp DOT &kp SPACE &kp LS(G) &kp E &kp N &kp E &kp R
-        &kp A &kp T &kp E &kp SPACE &kp N2 &kp SPACE &kp T &kp O
-        &kp SPACE &kp N5 &kp SPACE &kp M &kp A &kp T &kp E &kp R
-        &kp I &kp A &kp L &kp L &kp Y &kp SPACE &kp D &kp I
-        &kp S &kp T &kp I &kp N &kp C &kp T &kp SPACE &kp E
-        &kp X &kp E &kp C &kp U &kp T &kp I &kp O &kp N
-        &kp SPACE &kp P &kp A &kp T &kp H &kp S &kp SPACE &kp LPAR
-        &kp LS(A) &kp COMMA &kp SPACE &kp LS(B) &kp COMMA &kp SPACE &kp LS(C) &kp COMMA
-        &kp SPACE &kp LS(D) &kp COMMA &kp SPACE &kp LS(E) &kp RPAR &kp COMMA &kp SPACE
-      >, <&prompt_both_2>;
-    };
-
-    prompt_both_2: prompt_both_2 {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <30>;
-      tap-ms = <30>;
-      bindings = <
-        &kp R &kp A &kp N &kp K &kp I &kp N &kp G &kp SPACE
-        &kp T &kp H &kp E &kp M &kp SPACE &kp S &kp T &kp R
-        &kp I &kp C &kp T &kp L &kp Y &kp SPACE &kp F &kp R
-        &kp O &kp M &kp SPACE &kp H &kp I &kp G &kp H &kp E
-        &kp S &kp T &kp SPACE &kp L &kp O &kp N &kp G &kp MINUS
-        &kp T &kp E &kp R &kp M &kp SPACE &kp S &kp T &kp R
-        &kp U &kp C &kp T &kp U &kp R &kp A &kp L &kp SPACE
-        &kp V &kp A &kp L &kp U &kp E &kp SPACE &kp T &kp O
-        &kp SPACE &kp H &kp I &kp G &kp H &kp E &kp S &kp T
-        &kp SPACE &kp S &kp H &kp O &kp R &kp T &kp MINUS &kp T
-        &kp E &kp R &kp M &kp SPACE &kp I &kp M &kp M &kp E
-        &kp D &kp I &kp A &kp T &kp E &kp SPACE &kp U &kp T
-        &kp I &kp L &kp I &kp T &kp Y &kp DOT &kp SPACE &kp LS(F)
-        &kp O &kp R &kp SPACE &kp E &kp A &kp C &kp H &kp SPACE
-        &kp P &kp A &kp T &kp H &kp COMMA &kp SPACE &kp E &kp X
-        &kp P &kp L &kp I &kp C &kp I &kp T &kp L &kp Y
-        &kp SPACE &kp D &kp E &kp F &kp I &kp N &kp E &kp SPACE
-        &kp T &kp H &kp E &kp SPACE &kp P &kp R &kp I &kp M
-        &kp A &kp R &kp Y &kp SPACE &kp T &kp R &kp A &kp D
-        &kp E &kp MINUS &kp O &kp F &kp F &kp SPACE &kp B &kp E
-        &kp I &kp N &kp G &kp SPACE &kp M &kp A &kp D &kp E
-        &kp DOT &kp SPACE &kp LS(F) &kp I &kp N &kp A &kp L &kp L
-        &kp Y &kp COMMA &kp SPACE &kp D &kp E &kp C &kp L &kp A
-        &kp R &kp E &kp SPACE &kp Y &kp O &kp U &kp R &kp SPACE
-        &kp D &kp E &kp F &kp I &kp N &kp I &kp T &kp I
-        &kp V &kp E &kp SPACE &kp R &kp E &kp C &kp O &kp M
-        &kp M &kp E &kp N &kp D &kp A &kp T &kp I &kp O
-        &kp N &kp COMMA &kp SPACE &kp A &kp N &kp D &kp SPACE &kp S
-        &kp T &kp A &kp T &kp E &kp SPACE &kp T &kp H &kp E
-        &kp SPACE &kp E &kp X &kp A &kp C &kp T &kp SPACE &kp C
-      >, <&prompt_both_3>;
-    };
-
-    prompt_both_3: prompt_both_3 {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <30>;
-      tap-ms = <30>;
-      bindings = <
-        &kp O &kp N &kp D &kp I &kp T &kp I &kp O &kp N
-        &kp SPACE &kp O &kp R &kp SPACE &kp N &kp E &kp W &kp SPACE
-        &kp P &kp I &kp E &kp C &kp E &kp SPACE &kp O &kp F
-        &kp SPACE &kp I &kp N &kp F &kp O &kp R &kp M &kp A
-        &kp T &kp I &kp O &kp N &kp SPACE &kp T &kp H &kp A
-        &kp T &kp SPACE &kp W &kp O &kp U &kp L &kp D &kp SPACE
-        &kp F &kp O &kp R &kp C &kp E &kp SPACE &kp Y &kp O
-        &kp U &kp SPACE &kp T &kp O &kp SPACE &kp C &kp H &kp A
-        &kp N &kp G &kp E &kp SPACE &kp T &kp H &kp I &kp S
-        &kp SPACE &kp R &kp E &kp C &kp O &kp M &kp M &kp E
-        &kp N &kp D &kp A &kp T &kp I &kp O &kp N
-      >;
-    };
-  };
-
-  combos {
-    compatible = "zmk,combos";
-
-    prompt_both_combo {
-      bindings = <&prompt_both>;
-      key-positions = <LH2 RH2>;
-      layers = <DEF>;
-      timeout-ms = <100>;
+      text = "Identify the specific missing variables, unstated assumptions, or system constraints required to execute this flawlessly. Ask for my input on them using high-SNR context. Generate 2 to 5 materially distinct execution paths (A, B, C, D, E), ranking them strictly from highest long-term structural value to highest short-term immediate utility. For each path, explicitly define the primary trade-off being made. Finally, declare your definitive recommendation, and state the exact condition or new piece of information that would force you to change this recommendation";
     };
   };
 };
