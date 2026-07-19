@@ -18,7 +18,7 @@ Hold the Enter thumb to activate the Fn layer, then press:
 
 The prompts type without sending Enter. While a prompt is typing, press any
 prompt key again to stop it immediately. The outer left and right thumb keys
-are Backspace and Tab, respectively.
+are Backspace and Right Arrow, respectively.
 
 Other Fn-layer shortcuts include:
 

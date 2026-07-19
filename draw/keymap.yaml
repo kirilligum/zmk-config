@@ -36,7 +36,7 @@ layers:
     - {t: Enter, h: Fn}
     - {t: Smart, h: Num}
     - {t: Magic, h: Shift}
-    - Tab
+    - Right
   Nav:
     - Close
     - {type: trans}
@@ -73,7 +73,7 @@ layers:
     - {type: trans}
     - {type: trans}
     - Cancel
-    - Tab
+    - Right
   Fn:
     - F12
     - F7
@@ -110,7 +110,7 @@ layers:
     - {type: held}
     - $$mdi:volume-off$$
     - $$mdi:play-pause$$
-    - Tab
+    - Right
   Num:
     - {type: trans}
     - '7'
@@ -147,7 +147,7 @@ layers:
     - {type: trans}
     - {type: held}
     - {type: trans}
-    - Tab
+    - Right
   Sys:
     - BT 1
     - BT 2
@@ -184,7 +184,7 @@ layers:
     - {type: held}
     - {type: held}
     - {type: trans}
-    - Tab
+    - Right
   Mouse:
     - {type: trans}
     - {type: trans}
@@ -221,7 +221,7 @@ layers:
     - {type: trans}
     - Scroll ↑
     - Scroll ↓
-    - Tab
+    - Right
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:

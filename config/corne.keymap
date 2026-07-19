@@ -5,7 +5,7 @@
                  LT RT                                                         \
                  LM RM                                                         \
                  LB RB                                                         \
-        &kp BSPC LH RH &kp TAB                                                 \
+        &kp BSPC LH RH &kp RIGHT                                               \
     )
 
 #include "zmk-helpers/key-labels/36.h"
