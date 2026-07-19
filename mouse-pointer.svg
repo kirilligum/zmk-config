@@ -1,0 +1,299 @@
+<svg width="340" height="445" viewBox="0 0 340 445" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>/* inherit to force styles through use tags */
+svg path {
+    fill: inherit;
+}
+
+/* font and background color specifications */
+svg.keymap {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    font-size: 14px;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+    fill: #24292e;
+}
+
+/* default key styling */
+rect.key {
+    fill: #f6f8fa;
+}
+
+rect.key, rect.combo {
+    stroke: #c9cccf;
+    stroke-width: 1;
+}
+
+/* default key side styling, only used is draw_key_sides is set */
+rect.side {
+    filter: brightness(90%);
+}
+
+/* color accent for combo boxes */
+rect.combo, rect.combo-separate {
+    fill: #cdf;
+}
+
+/* color accent for held keys */
+rect.held, rect.combo.held {
+    fill: #fdd;
+}
+
+/* color accent for ghost (optional) keys */
+rect.ghost, rect.combo.ghost {
+    stroke-dasharray: 4, 4;
+    stroke-width: 2;
+}
+
+text {
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* styling for layer labels */
+text.label {
+    font-weight: bold;
+    text-anchor: start;
+    stroke: white;
+    stroke-width: 4;
+    paint-order: stroke;
+}
+
+/* styling for optional footer */
+text.footer {
+    text-anchor: end;
+    dominant-baseline: auto;
+    stroke: white;
+    stroke-width: 4;
+    paint-order: stroke;
+}
+
+/* styling for combo tap, and key non-tap label text */
+text.combo, text.hold, text.shifted, text.left, text.right, text.tl, text.tr, text.bl, text.br {
+    font-size: 11px;
+}
+
+text.hold, text.bl, text.br {
+    text-anchor: middle;
+    dominant-baseline: auto;
+}
+
+text.shifted, text.tl, text.tr {
+    text-anchor: middle;
+    dominant-baseline: hanging;
+}
+
+text.left, text.tl, text.bl {
+    text-anchor: start;
+}
+
+text.right, text.tr, text.br {
+    text-anchor: end;
+}
+
+text.layer-activator {
+    text-decoration: underline;
+}
+
+/* styling for hold/shifted label text in combo box */
+text.combo.hold, text.combo.shifted, text.combo.left, text.combo.right {
+    font-size: 8px;
+}
+
+/* lighter symbol for transparent keys */
+text.trans {
+    fill: #7b7e81;
+}
+
+/* styling for combo dendrons */
+path.combo {
+    stroke-width: 1;
+    stroke: gray;
+    fill: none;
+}
+
+/* Start Tabler Icons Cleanup */
+/* cannot use height/width with glyphs */
+.icon-tabler > path {
+    fill: inherit;
+    stroke: inherit;
+    stroke-width: 2;
+}
+/* hide tabler's default box */
+.icon-tabler > path[stroke="none"][fill="none"] {
+    visibility: hidden;
+}
+/* End Tabler Icons Cleanup */
+</style>
+<g transform="translate(30, 0)" class="layer-Pointer">
+<text x="0" y="28" class="label" id="Pointer">Pointer:</text>
+<g transform="translate(0, 112)">
+<g transform="translate(28, 28)" class="key keypos-0">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">PgUp</text>
+<text x="0" y="-24" class="key shifted">J</text>
+</g>
+<g transform="translate(84, 28)" class="key keypos-1">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">PTab</text>
+<text x="0" y="-24" class="key shifted">L</text>
+</g>
+<g transform="translate(140, 28)" class="key keypos-2">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">↑</text>
+<text x="0" y="24" class="key hold">Mouse</text>
+<text x="0" y="-24" class="key shifted">U</text>
+</g>
+<g transform="translate(196, 28)" class="key keypos-3">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">NTab</text>
+<text x="0" y="-24" class="key shifted">Y</text>
+</g>
+<g transform="translate(252, 28)" class="key keypos-4">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Ctrl</text>
+<text x="0" y="24" class="key hold">LOCK</text>
+<text x="0" y="-24" class="key shifted">&#x27;</text>
+</g>
+<g transform="translate(28, 84)" class="key keypos-5">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">PgDn</text>
+<text x="0" y="-24" class="key shifted">M</text>
+</g>
+<g transform="translate(84, 84)" class="key keypos-6">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">←</text>
+<text x="0" y="24" class="key hold">Mouse</text>
+<text x="0" y="-24" class="key shifted">N</text>
+</g>
+<g transform="translate(140, 84)" class="key keypos-7">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">↓</text>
+<text x="0" y="24" class="key hold">Mouse</text>
+<text x="0" y="-24" class="key shifted">E</text>
+</g>
+<g transform="translate(196, 84)" class="key keypos-8">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">→</text>
+<text x="0" y="24" class="key hold">Mouse</text>
+<text x="0" y="-24" class="key shifted">I</text>
+</g>
+<g transform="translate(252, 84)" class="key keypos-9">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">4×</text>
+<text x="0" y="-24" class="key shifted">O</text>
+</g>
+<g transform="translate(28, 140)" class="key keypos-10">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Shift</text>
+<text x="0" y="24" class="key hold">LOCK</text>
+<text x="0" y="-24" class="key shifted">K</text>
+</g>
+<g transform="translate(84, 140)" class="key keypos-11">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Copy</text>
+<text x="0" y="-24" class="key shifted">H</text>
+</g>
+<g transform="translate(140, 140)" class="key keypos-12">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Cut</text>
+<text x="0" y="-24" class="key shifted">,</text>
+</g>
+<g transform="translate(196, 140)" class="key keypos-13">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Paste</text>
+<text x="0" y="-24" class="key shifted">.</text>
+</g>
+<g transform="translate(252, 140)" class="key keypos-14">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">¼×</text>
+<text x="0" y="-24" class="key shifted">?</text>
+</g>
+<g transform="translate(41, 242) rotate(-18.0)" class="key keypos-15">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Right</tspan><tspan x="0" dy="1.2em">Click</tspan>
+</text>
+</g>
+<g transform="translate(97, 237) rotate(-10.0)" class="key keypos-16">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Middle</tspan><tspan x="0" dy="1.2em">Click</tspan>
+</text>
+</g>
+<g transform="translate(153, 234) rotate(-3.0)" class="key keypos-17">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">Left</tspan><tspan x="0" dy="1.2em">Click</tspan>
+</text>
+</g>
+<g class="combo combopos-0">
+<rect rx="6" ry="6" x="14" y="43" width="28" height="26" class="combo"/>
+<text x="28" y="56" class="combo tap"><tspan style="font-size: 88%">ClipHist</tspan></text>
+</g>
+<g class="combo combopos-1">
+<rect rx="6" ry="6" x="14" y="99" width="28" height="26" class="combo"/>
+<text x="28" y="112" class="combo tap">Snip</text>
+</g>
+<g class="combo combopos-2">
+<path d="M112,-1 h-22 a6.0,6.0 0 0 0 -6.0,6.0 v4" class="combo"/>
+<path d="M112,-1 h22 a6.0,6.0 0 0 1 6.0,6.0 v4" class="combo"/>
+<rect rx="6" ry="6" x="98" y="-14" width="28" height="26" class="combo"/>
+<text x="112" y="-1" class="combo tap">Close</text>
+</g>
+<g class="combo combopos-3">
+<path d="M168,-1 h-22 a6.0,6.0 0 0 0 -6.0,6.0 v4" class="combo"/>
+<path d="M168,-1 h22 a6.0,6.0 0 0 1 6.0,6.0 v4" class="combo"/>
+<rect rx="6" ry="6" x="154" y="-14" width="28" height="26" class="combo"/>
+<text x="168" y="-1" class="combo tap">New</text>
+</g>
+<g class="combo combopos-4">
+<path d="M140,-43 h-50 a6.0,6.0 0 0 0 -6.0,6.0 v46" class="combo"/>
+<path d="M140,-43 h50 a6.0,6.0 0 0 1 6.0,6.0 v46" class="combo"/>
+<rect rx="6" ry="6" x="126" y="-56" width="28" height="26" class="combo"/>
+<text x="140" y="-43" class="combo tap">Reopen</text>
+</g>
+<g class="combo combopos-5">
+<path d="M224,-1 h-22 a6.0,6.0 0 0 0 -6.0,6.0 v4" class="combo"/>
+<path d="M224,-1 h22 a6.0,6.0 0 0 1 6.0,6.0 v4" class="combo"/>
+<rect rx="6" ry="6" x="210" y="-14" width="28" height="26" class="combo"/>
+<text x="224" y="-1" class="combo tap">Mouse</text>
+</g>
+<g class="combo combopos-6">
+<rect rx="6" ry="6" x="70" y="43" width="28" height="26" class="combo"/>
+<text x="84" y="56" class="combo tap">PWin</text>
+</g>
+<g class="combo combopos-7">
+<rect rx="6" ry="6" x="182" y="43" width="28" height="26" class="combo"/>
+<text x="196" y="56" class="combo tap">NWin</text>
+</g>
+<g class="combo combopos-8">
+<rect rx="6" ry="6" x="238" y="99" width="28" height="26" class="combo"/>
+<text x="252" y="112" class="combo tap">P⇄S</text>
+</g>
+<g class="combo combopos-9">
+<path d="M112,169 h-22 a6.0,6.0 0 0 1 -6.0,-6.0 v-4" class="combo"/>
+<path d="M112,169 h22 a6.0,6.0 0 0 0 6.0,-6.0 v-4" class="combo"/>
+<rect rx="6" ry="6" x="98" y="156" width="28" height="26" class="combo"/>
+<text x="112" y="169" class="combo tap">
+<tspan x="112" dy="-0.6em">R</tspan><tspan x="112" dy="1.2em">Lock</tspan>
+</text>
+</g>
+<g class="combo combopos-10">
+<path d="M140,189 h-50 a6.0,6.0 0 0 1 -6.0,-6.0 v-24" class="combo"/>
+<path d="M140,189 h50 a6.0,6.0 0 0 0 6.0,-6.0 v-24" class="combo"/>
+<rect rx="6" ry="6" x="126" y="176" width="28" height="26" class="combo"/>
+<text x="140" y="189" class="combo tap">
+<tspan x="140" dy="-0.6em">M</tspan><tspan x="140" dy="1.2em">Lock</tspan>
+</text>
+</g>
+<g class="combo combopos-11">
+<path d="M168,169 h-22 a6.0,6.0 0 0 1 -6.0,-6.0 v-4" class="combo"/>
+<path d="M168,169 h22 a6.0,6.0 0 0 0 6.0,-6.0 v-4" class="combo"/>
+<rect rx="6" ry="6" x="154" y="156" width="28" height="26" class="combo"/>
+<text x="168" y="169" class="combo tap">
+<tspan x="168" dy="-0.6em">L</tspan><tspan x="168" dy="1.2em">Lock</tspan>
+</text>
+</g>
+</g>
+</g>
+</svg>
