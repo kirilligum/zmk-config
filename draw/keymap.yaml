@@ -186,50 +186,53 @@ layers:
     - {type: trans}
     - Right
   Mouse:
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - PgUp
+    - {t: Ctrl, h: LOCK}
+    - PTab
     - Mouse ↑
-    - PgDn
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - Scroll ←
+    - NTab
+    - PgUp
+    - PgUp
+    - PTab
+    - Mouse ↑
+    - NTab
+    - {t: Ctrl, h: LOCK}
+    - 4×
     - Mouse ←
     - Mouse ↓
     - Mouse →
-    - Scroll →
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
-    - {type: trans}
+    - PgDn
+    - PgDn
+    - Mouse ←
+    - Mouse ↓
+    - Mouse →
+    - 4×
+    - ¼×
+    - Paste
+    - Cut
+    - Copy
+    - {t: Shift, h: LOCK}
+    - {t: Shift, h: LOCK}
+    - Copy
+    - Cut
+    - Paste
+    - ¼×
     - Left Click
     - Middle Click
     - Right Click
-    - {type: trans}
-    - Bspc
-    - {type: trans}
-    - {type: trans}
-    - Scroll ↑
-    - Scroll ↓
-    - Right
+    - Right Click
+    - Middle Click
+    - Left Click
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:
   - p: [1, 2]
     k: Esc
     l: [Combos]
-  - p: [2, 3]
-    k: Smart Mouse
+  - p: [0, 1]
+    k: Mouse
+    l: [Combos]
+  - p: [8, 9]
+    k: Mouse
     l: [Combos]
   - p: [11, 12]
     k: Tab

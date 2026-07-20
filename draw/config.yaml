@@ -34,7 +34,14 @@ parse_config:
     "&dot_spc": Sentence
     "&num_dance": { "t": "Smart"}
     "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&smart_mouse": Smart Mouse
+    "&to MOUSE": Mouse
+    "&kp LC(LS(TAB))": PTab
+    "&kp LC(TAB)": NTab
+    "&kt LCTRL": { "t": Ctrl, "h": LOCK }
+    "&kt LSHFT": { "t": Shift, "h": LOCK }
+    "&mo NAV": 4×
+    "&mo FN": ¼×
+    "&tog MOUSE_SCROLL": P/S
     "&prompt_reasoning": Reason
     "&prompt_execution": Abstract
     "&prompt_both": Plan

@@ -18,6 +18,12 @@
 #define NUM 3
 #define SYS 4
 #define MOUSE 5
+#define MOUSE_SCROLL 6
+#define MOUSE_R_LOCK 7
+#define MOUSE_M_LOCK 8
+#define MOUSE_L_LOCK 9
+
+#define MOUSE_LAYERS MOUSE MOUSE_SCROLL MOUSE_R_LOCK MOUSE_M_LOCK MOUSE_L_LOCK
 
 #define XXX &none
 #define ___ &trans
@@ -59,9 +65,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
 /* Combos, leader key sequences, mouse emulation */
 
+#include "mouse.dtsi"
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 #include "leader.dtsi"
-#include "mouse.dtsi"
 
 /* Nav cluster */
 
@@ -119,13 +125,6 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
-
-// Smart-mouse, requires tri-state module.
-ZMK_TRI_STATE(
-    smart_mouse, bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions =
-        <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
-    ignored-layers = <MOUSE NAV FN>;)
 
 /* Custom behaviors */
 
@@ -185,8 +184,8 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 ZMK_CONDITIONAL_LAYER(sys, FN NUM, SYS) // FN + NUM --> SYS.
 
 #ifndef ZMK_BASE_LAYER
-  #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
-      ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
+  #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, LO, RO)         \
+      ZMK_LAYER(name, LT RT LM RM LB RB LO LH RH RO)
 #endif
 
 ZMK_BASE_LAYER(Base,
@@ -197,7 +196,8 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Z         &kp X         &kp C         &kp D         &kp V       ,   &kp K         &kp H         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT
+                                              &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT,
+                                              &kp BSPC                  ,   &kp RIGHT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -209,7 +209,8 @@ ZMK_BASE_LAYER(Nav,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   &kp INS       &kp TAB       ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   ___           CANCEL
+                                              ___           ___         ,   ___           CANCEL,
+                                              &kp BSPC                  ,   &kp RIGHT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -221,7 +222,8 @@ ZMK_BASE_LAYER(Fn,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp F10       &kp F1        &kp F2        &kp F3        &prompt_both ,   PIN_APP       PIN_WIN       DSK_MGR       ___           &kp LG(P)   ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   &kp C_MUTE    &kp C_PP
+                                              ___           ___         ,   &kp C_MUTE    &kp C_PP,
+                                              &kp BSPC                  ,   &kp RIGHT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -233,7 +235,8 @@ ZMK_BASE_LAYER(Num,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp N1        &kp N2        &kp N3        ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   ___           ___
+                                              ___           ___         ,   ___           ___,
+                                              &kp BSPC                  ,   &kp RIGHT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -245,20 +248,46 @@ ZMK_BASE_LAYER(Sys,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           &sys_reset  ,   &sys_reset    ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   ___           ___
+                                              ___           ___         ,   ___           ___,
+                                              &kp BSPC                  ,   &kp RIGHT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
 ZMK_BASE_LAYER(Mouse,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___           ___           ___         ,   ___           &kp PG_UP     U_MS_U         &kp PG_DN    ___         ,
+    &kt LCTRL     &kp LC(LS(TAB)) U_MS_U       &kp LC(TAB) &kp PG_UP    ,   &kp PG_UP     &kp LC(LS(TAB)) U_MS_U       &kp LC(TAB) &kt LCTRL   ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,   U_WH_L        U_MS_L        U_MS_D         U_MS_R       U_WH_R      ,
+    &mo NAV       U_MS_L        U_MS_D         U_MS_R        &kp PG_DN   ,   &kp PG_DN     U_MS_L        U_MS_D         U_MS_R       &mo NAV     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,   ___           &mkp LCLK     &mkp MCLK      &mkp RCLK    ___         ,
+    &mo FN        &kp LS(INS)   &kp LC(X)      &kp LC(INS)   &kt LSHFT   ,   &kt LSHFT     &kp LC(INS)   &kp LC(X)      &kp LS(INS)  &mo FN      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   U_WH_U        U_WH_D
+                                              &mkp MCLK     &mkp RCLK   ,   &mkp RCLK     &mkp MCLK,
+                                              &mkp LCLK                 ,   &mkp LCLK
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
+
+ZMK_BASE_LAYER(MouseScroll,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           U_WH_U        ___           ___         ,   ___           ___           U_WH_U        ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           U_WH_L        U_WH_D        U_WH_R        ___         ,   ___           U_WH_L        U_WH_D        U_WH_R        ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              ___           ___         ,   ___           ___,
+                                              ___                       ,   ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
+#define MOUSE_STATE_LAYER(NAME, LEFT_THUMBS, RIGHT_THUMBS, LEFT_OUTER, RIGHT_OUTER) \
+    ZMK_BASE_LAYER(NAME,                                                       \
+        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
+        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
+        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
+        LEFT_THUMBS, RIGHT_THUMBS, LEFT_OUTER, RIGHT_OUTER)
+
+MOUSE_STATE_LAYER(MouseRLock, ___ XXX, XXX ___, ___, ___)
+MOUSE_STATE_LAYER(MouseMLock, XXX ___, ___ XXX, ___, ___)
+MOUSE_STATE_LAYER(MouseLLock, ___ ___, ___ ___, XXX, XXX)
 
 /* vim: set ft=c tw=146: */

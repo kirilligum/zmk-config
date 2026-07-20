@@ -3,9 +3,10 @@
 This directory contains the reproducible sources for the keymap SVGs:
 
 - `keymap.yaml` is the parsed 36-key keymap-drawer model.
-- `mouse-layer.yaml` is the focused right-hand Mouse layer model, including
-  Pointer and Scroll modes and their layer-specific combos.
-- `mouse-layout.json` defines its 3x5 grid and three-key right-hand thumb fan.
+- `mouse-layer.yaml` is the focused bilateral Mouse layer model, including
+  Pointer and Scroll modes and their layer-specific combos on both halves.
+- `mouse-layout.json` defines the two 3x5 grids and mirrored three-key thumb
+  fans.
 - `config.yaml` contains the ZMK parser mappings and light-only SVG theme.
 
 ## Prompt keys
@@ -33,7 +34,7 @@ uvx --from keymap-drawer==0.23.0 keymap \
   -c draw/config.yaml draw draw/keymap.yaml -o keymap.svg
 ```
 
-Generate the focused 3x5+3 Mouse layer diagrams with:
+Generate the focused bilateral 3x5+3 Mouse layer diagrams with:
 
 ```sh
 uvx --from keymap-drawer==0.23.0 keymap \
@@ -43,9 +44,18 @@ uvx --from keymap-drawer==0.23.0 keymap \
   draw draw/mouse-layer.yaml -s Scroll -o mouse-scroll.svg
 ```
 
-`LOCK` means the key or mouse button remains held until its toggle is pressed
-again. `P⇄S` switches the directional keys between Pointer and Scroll mode;
-`4x` and `1/4x` are held speed modifiers in either mode.
+`🔒` means the key or mouse button remains held until its toggle is pressed
+again. Selecting another mouse-button lock transfers the hold; exiting Mouse
+releases it. `🖱↕` switches the directional keys between Pointer and Scroll
+mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode. Mode
+and button-lock state are shared between halves and can be changed from either
+hand.
+
+Mouse diagram legend: `⇞`/`⇟` are page up/down; `PTab`/`NTab` and
+`PWin`/`NWin` are previous/next tab and window; `⧉`/`✂`/`📋` are
+copy/cut/paste; `🕘` is clipboard history; `📸` is screen snip;
+`×`/`＋`/`↶` are close/new/reopen tab; and `L●`/`M●`/`R●` mirror the
+three mouse-button thumbs between hands.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.
