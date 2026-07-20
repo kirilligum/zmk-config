@@ -15,6 +15,7 @@
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(mouse_left, &to MOUSE, LT4 LT3,   DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(mouse, &to MOUSE,    RT3 RT4,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 // Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
@@ -67,6 +68,12 @@ ZMK_COMBO(pipe,  &kp PIPE,     RM3 RB3,     DEF NAV NUM, COMBO_TERM_SLOW, COMBO_
 /* Mouse layer combos */
 
 // Browser tabs and windows.
+ZMK_COMBO(mouse_left_close_tab,  &kp LC(W),       LT3 LT2, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_new_tab,    &kp LC(T),       LT2 LT1, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_reopen_tab, &kp LC(LS(T)),   LT3 LT1, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_prev_win,   &kp LA(LS(TAB)), LT3 LM3, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_next_win,   &kp LA(TAB),     LT1 LM1, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+
 ZMK_COMBO(mouse_close_tab,  &kp LC(W),        RT1 RT2, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_new_tab,    &kp LC(T),        RT2 RT3, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_reopen_tab, &kp LC(LS(T)),    RT1 RT3, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
@@ -74,32 +81,51 @@ ZMK_COMBO(mouse_prev_win,   &kp LA(LS(TAB)),  RT1 RM1, MOUSE_LAYERS, COMBO_TERM_
 ZMK_COMBO(mouse_next_win,   &kp LA(TAB),      RT3 RM3, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 
 // Clipboard, editing, and capture.
+ZMK_COMBO(mouse_left_clipboard, &kp LG(V),     LT0 LM0, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_snip,      &kp LG(LS(S)), LM0 LB0, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_clipboard, &kp LG(V),     RT0 RM0, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_snip,      &kp LG(LS(S)), RM0 RB0, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 
 // Pointer/scroll mode and Mouse-layer exit. &to resets every Mouse sublayer.
+ZMK_COMBO(mouse_left_mode, &tog MOUSE_SCROLL, LM4 LB4, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_mode, &tog MOUSE_SCROLL, RM4 RB4, MOUSE_LAYERS, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_exit, &to DEF, LT4 LT3, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_exit, &to DEF, RT3 RT4, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_exit_r_lock, &mouse_r_lock_exit, LT4 LT3, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_exit_m_lock, &mouse_m_lock_exit, LT4 LT3, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_exit_l_lock, &mouse_l_lock_exit, LT4 LT3, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_exit_r_lock, &mouse_r_lock_exit, RT3 RT4, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_exit_m_lock, &mouse_m_lock_exit, RT3 RT4, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_exit_l_lock, &mouse_l_lock_exit, RT3 RT4, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
 
 // No button locked: each combo starts its persistent hold.
+ZMK_COMBO(mouse_left_r_lock_on, &mouse_r_lock_on, LB1 LB2, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_m_lock_on, &mouse_m_lock_on, LB1 LB3, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_l_lock_on, &mouse_l_lock_on, LB2 LB3, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_r_lock_on, &mouse_r_lock_on, RB1 RB2, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_m_lock_on, &mouse_m_lock_on, RB1 RB3, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_l_lock_on, &mouse_l_lock_on, RB2 RB3, MOUSE MOUSE_SCROLL, COMBO_TERM_FAST, 0)
 
 // Right button locked: repeat releases it; another lock combo transfers it.
+ZMK_COMBO(mouse_left_r_lock_off, &mouse_r_lock_off, LB1 LB2, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_r_to_m,     &mouse_r_to_m,     LB1 LB3, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_r_to_l,     &mouse_r_to_l,     LB2 LB3, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_r_lock_off, &mouse_r_lock_off, RB1 RB2, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_r_to_m,     &mouse_r_to_m,     RB1 RB3, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_r_to_l,     &mouse_r_to_l,     RB2 RB3, MOUSE_R_LOCK, COMBO_TERM_FAST, 0)
 
 // Middle button locked.
+ZMK_COMBO(mouse_left_m_to_r,     &mouse_m_to_r,     LB1 LB2, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_m_lock_off, &mouse_m_lock_off, LB1 LB3, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_m_to_l,     &mouse_m_to_l,     LB2 LB3, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_m_to_r,     &mouse_m_to_r,     RB1 RB2, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_m_lock_off, &mouse_m_lock_off, RB1 RB3, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_m_to_l,     &mouse_m_to_l,     RB2 RB3, MOUSE_M_LOCK, COMBO_TERM_FAST, 0)
 
 // Left button locked.
+ZMK_COMBO(mouse_left_l_to_r,     &mouse_l_to_r,     LB1 LB2, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_l_to_m,     &mouse_l_to_m,     LB1 LB3, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
+ZMK_COMBO(mouse_left_l_lock_off, &mouse_l_lock_off, LB2 LB3, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_l_to_r,     &mouse_l_to_r,     RB1 RB2, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_l_to_m,     &mouse_l_to_m,     RB1 RB3, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)
 ZMK_COMBO(mouse_l_lock_off, &mouse_l_lock_off, RB2 RB3, MOUSE_L_LOCK, COMBO_TERM_FAST, 0)

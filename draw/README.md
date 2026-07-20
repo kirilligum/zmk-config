@@ -3,9 +3,10 @@
 This directory contains the reproducible sources for the keymap SVGs:
 
 - `keymap.yaml` is the parsed 36-key keymap-drawer model.
-- `mouse-layer.yaml` is the focused right-hand Mouse layer model, including
-  Pointer and Scroll modes and their layer-specific combos.
-- `mouse-layout.json` defines its 3x5 grid and three-key right-hand thumb fan.
+- `mouse-layer.yaml` is the focused bilateral Mouse layer model, including
+  Pointer and Scroll modes and their layer-specific combos on both halves.
+- `mouse-layout.json` defines the two 3x5 grids and mirrored three-key thumb
+  fans.
 - `config.yaml` contains the ZMK parser mappings and light-only SVG theme.
 
 ## Prompt keys
@@ -33,7 +34,7 @@ uvx --from keymap-drawer==0.23.0 keymap \
   -c draw/config.yaml draw draw/keymap.yaml -o keymap.svg
 ```
 
-Generate the focused 3x5+3 Mouse layer diagrams with:
+Generate the focused bilateral 3x5+3 Mouse layer diagrams with:
 
 ```sh
 uvx --from keymap-drawer==0.23.0 keymap \
@@ -51,8 +52,8 @@ mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode.
 Mouse diagram legend: `⇞`/`⇟` are page up/down; `PTab`/`NTab` and
 `PWin`/`NWin` are previous/next tab and window; `⧉`/`✂`/`📋` are
 copy/cut/paste; `🕘` is clipboard history; `📸` is screen snip;
-`×`/`＋`/`↶` are close/new/reopen tab; and `R●`/`M●`/`L●` are the
-three mouse-button thumbs.
+`×`/`＋`/`↶` are close/new/reopen tab; and `L●`/`M●`/`R●` mirror the
+three mouse-button thumbs between hands.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.

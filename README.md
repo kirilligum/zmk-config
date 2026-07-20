@@ -15,8 +15,10 @@ Sys.
 
 ## Mouse layer
 
-Press `Y+'` together from Base, Nav, or Num to enter Mouse. Press the same combo
-to exit. Mouse is a right-hand 3x5+3 layout with Pointer and Scroll modes.
+Press `Q+W` with the left hand or `Y+'` with the right hand from Base, Nav, or
+Num to enter Mouse. Either combo exits. Mouse provides matching one-handed
+3x5+3 controls on both halves, with shared Pointer, Scroll, speed, modifier, and
+button-lock state.
 
 ![Mouse Pointer mode](mouse-pointer.svg)
 
@@ -25,18 +27,18 @@ pointer.
 
 ### Keys
 
-| Key | SVG | Action |
-| --- | --- | --- |
-| `J` / `M` | `⇞` / `⇟` | Page up / page down |
-| `L` / `Y` | `PTab` / `NTab` | Previous tab / next tab |
-| `U` `N` `E` `I` | `↑` `←` `↓` `→` | Move or scroll up / left / down / right |
-| `O` / `?` | `🐇` / `🐢` | Hold for 4x / 1/4x movement or scroll speed |
-| `'` / `K` | `⌃🔒` / `⇧🔒` | Toggle-held Ctrl / Shift |
-| `H` / `,` / `.` | `⧉` / `✂` / `📋` | Copy / cut / paste |
-| Right thumbs | `R●` / `M●` / `L●` | Right / middle / left click |
+| Left hand | Right hand | SVG | Action |
+| --- | --- | --- | --- |
+| `B` / `G` | `J` / `M` | `⇞` / `⇟` | Page up / page down |
+| `W` / `P` | `L` / `Y` | `PTab` / `NTab` | Previous / next tab |
+| `F` `R` `S` `T` | `U` `N` `E` `I` | `↑` `←` `↓` `→` | Move or scroll up / left / down / right |
+| `A` / `Z` | `O` / `?` | `🐇` / `🐢` | Hold for 4x / 1/4x movement or scroll speed |
+| `Q` / `V` | `'` / `K` | `⌃🔒` / `⇧🔒` | Toggle-held Ctrl / Shift |
+| `D` / `C` / `X` | `H` / `,` / `.` | `⧉` / `✂` / `📋` | Copy / cut / paste |
+| Left thumbs | Right thumbs | `L● M● R●` / `R● M● L●` | Left / middle / right click, mirrored by hand |
 
-In Scroll mode, `U N E I` scroll up, left, down, and right. `O` and `?` apply
-the same 4x and 1/4x scaling to both pointer movement and scrolling.
+In Scroll mode, `F R S T` or `U N E I` scroll up, left, down, and right. The
+speed keys apply the same 4x and 1/4x scaling to pointer movement and scrolling.
 
 Ctrl and Shift are true toggles: they do not time out and remain held until the
 same key is pressed again. Mouse-button locks behave the same way, but selecting
@@ -46,39 +48,40 @@ before leaving the layer.
 
 ### Combos
 
-| Combo | SVG | Action |
-| --- | --- | --- |
-| `Y+'` | `🖱` | Enter or exit Mouse |
-| `O+?` | `🖱↕` | Switch Pointer / Scroll mode |
-| `L+U` / `U+Y` / `L+Y` | `×` / `＋` / `↶` | Close / open / reopen browser tab |
-| `L+N` / `Y+I` | `PWin` / `NWin` | Previous / next window |
-| `J+M` | `🕘` | Clipboard history |
-| `M+K` | `📸` | Screen snip |
-| `H+,` / `H+.` / `,+.` | `R🔒` / `M🔒` / `L🔒` | Toggle-held right / middle / left mouse button |
+| Left hand | Right hand | SVG | Action |
+| --- | --- | --- | --- |
+| `Q+W` | `Y+'` | `🖱` | Enter or exit Mouse |
+| `A+Z` | `O+?` | `🖱↕` | Switch Pointer / Scroll mode |
+| `W+F` / `F+P` / `W+P` | `L+U` / `U+Y` / `L+Y` | `×` / `＋` / `↶` | Close / open / reopen browser tab |
+| `W+R` / `P+T` | `L+N` / `Y+I` | `PWin` / `NWin` | Previous / next window |
+| `B+G` | `J+M` | `🕘` | Clipboard history |
+| `G+V` | `M+K` | `📸` | Screen snip |
+| `D+C` / `D+X` / `C+X` | `H+,` / `H+.` / `,+.` | `R🔒` / `M🔒` / `L🔒` | Toggle-held right / middle / left mouse button |
 
-The existing right-hand Base/Nav/Num combos remain unchanged; the table above
-lists the combos active on Mouse and its Scroll/button-lock sublayers.
+The existing Base/Nav/Num combos remain unchanged; the table above lists the
+combos active on Mouse and its Scroll/button-lock sublayers.
 Browser-tab shortcuts use Ctrl, window switching uses Alt+Tab, and clipboard
 history/screen snip use the Windows shortcuts `Win+V` and `Win+Shift+S`.
 
 ### Design rationale
 
-- Everything is on the right half, so the left hand can remain off the keyboard
-  or operate another device.
-- `U N E I` reuse the Nav layer's directional positions. Switching to Scroll
-  changes the behavior, not the direction map, and `J M` likewise retain Nav's
-  page-up/page-down positions.
-- `L` and `Y` switch tabs directly. Together with `U`, the same top-row cluster
-  owns close, new, and reopen-tab actions, keeping browser navigation local.
-- `O` and `?` are the fast and precise speed holds. Chording those two endpoints
+- Both halves provide the same functions, so either hand can remain on the
+  keyboard while the other operates another device.
+- `F R S T` and `U N E I` keep directions spatially oriented on their half.
+  Switching to Scroll changes the behavior, not the direction map; `B G` and
+  `J M` likewise provide page up/down.
+- `W P` and `L Y` switch tabs directly. Together with `F` or `U`, each top-row
+  cluster owns close, new, and reopen-tab actions, keeping browser navigation
+  local.
+- `A Z` and `O ?` are the fast and precise speed holds. Chording either pair
   toggles Pointer/Scroll mode, making the mode switch mnemonic without consuming
   another key.
 - Copy, cut, and paste are single keys because they are common and reversible.
   Persistent mouse-button holds use deliberate two-key combos on the same three
   keys, reducing accidental locked clicks.
-- Right, middle, and left click live on the thumbs so the fingers can continue
-  steering. Toggle-held Ctrl and Shift support selection and modified clicking
-  without requiring an awkward simultaneous hold.
+- Mouse clicks mirror across the thumbs so the fingers can continue steering.
+  Toggle-held Ctrl and Shift support selection and modified clicking without
+  requiring an awkward simultaneous hold.
 
 ## Prompt shortcuts
 
