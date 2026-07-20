@@ -6,33 +6,33 @@ layers:
   Left Pointer:
     - {t: Ctrl, h: 1×/H/2×, tl: Q}
     - {t: NWin, h: Alt 2s, tl: W}
-    - {t: ↑, h: Mouse, tl: F}
-    - {t: Esc, tl: P}
-    - {t: PgUp, tl: B}
-    - {t: J, type: trans}
-    - {t: L, type: trans}
-    - {t: U, type: trans}
+    - {t: ↑, h: Mouse, tl: E}
+    - {t: Esc, tl: R}
+    - {t: PgUp, tl: T}
     - {t: Y, type: trans}
-    - {t: "'", type: trans}
-
-    - {t: 4×, tl: A}
-    - {t: ←, h: Mouse, tl: R}
-    - {t: ↓, h: Mouse, tl: S}
-    - {t: →, h: Mouse, tl: T}
-    - {t: PgDn, tl: G}
-    - {t: M, type: trans}
-    - {t: N, type: trans}
-    - {t: E, type: trans}
+    - {t: U, type: trans}
     - {t: I, type: trans}
     - {t: O, type: trans}
+    - {t: P, type: trans}
+
+    - {t: 4×, tl: A}
+    - {t: ←, h: Mouse, tl: S}
+    - {t: ↓, h: Mouse, tl: D}
+    - {t: →, h: Mouse, tl: F}
+    - {t: PgDn, tl: G}
+    - {t: H, type: trans}
+    - {t: J, type: trans}
+    - {t: K, type: trans}
+    - {t: L, type: trans}
+    - {t: "'", type: trans}
 
     - {t: ¼×, tl: Z}
     - {t: L Lock, tl: X}
     - {t: Paste, tl: C}
-    - {t: Copy, tl: D}
-    - {t: Shift, h: 1×/H/2×, tl: V}
-    - {t: K, type: trans}
-    - {t: H, type: trans}
+    - {t: Copy, tl: V}
+    - {t: Shift, h: 1×/H/2×, tl: B}
+    - {t: N, type: trans}
+    - {t: M, type: trans}
     - {t: ",", type: trans}
     - {t: ".", type: trans}
     - {t: "?", type: trans}
@@ -47,33 +47,33 @@ layers:
   Right Pointer:
     - {t: Q, type: trans}
     - {t: W, type: trans}
-    - {t: F, type: trans}
-    - {t: P, type: trans}
-    - {t: B, type: trans}
-    - {t: PgUp, tl: J}
-    - {t: Esc, tl: L}
-    - {t: ↑, h: Mouse, tl: U}
-    - {t: NWin, h: Alt 2s, tl: Y}
-    - {t: Ctrl, h: 1×/H/2×, tl: "'"}
+    - {t: E, type: trans}
+    - {t: R, type: trans}
+    - {t: T, type: trans}
+    - {t: PgUp, tl: Y}
+    - {t: Esc, tl: U}
+    - {t: ↑, h: Mouse, tl: I}
+    - {t: NWin, h: Alt 2s, tl: O}
+    - {t: Ctrl, h: 1×/H/2×, tl: P}
 
     - {t: A, type: trans}
-    - {t: R, type: trans}
     - {t: S, type: trans}
-    - {t: T, type: trans}
+    - {t: D, type: trans}
+    - {t: F, type: trans}
     - {t: G, type: trans}
-    - {t: PgDn, tl: M}
-    - {t: ←, h: Mouse, tl: N}
-    - {t: ↓, h: Mouse, tl: E}
-    - {t: →, h: Mouse, tl: I}
-    - {t: 4×, tl: O}
+    - {t: PgDn, tl: H}
+    - {t: ←, h: Mouse, tl: J}
+    - {t: ↓, h: Mouse, tl: K}
+    - {t: →, h: Mouse, tl: L}
+    - {t: 4×, tl: "'"}
 
     - {t: Z, type: trans}
     - {t: X, type: trans}
     - {t: C, type: trans}
-    - {t: D, type: trans}
     - {t: V, type: trans}
-    - {t: Shift, h: 1×/H/2×, tl: K}
-    - {t: Copy, tl: H}
+    - {t: B, type: trans}
+    - {t: Shift, h: 1×/H/2×, tl: N}
+    - {t: Copy, tl: M}
     - {t: Paste, tl: ","}
     - {t: L Lock, tl: "."}
     - {t: ¼×, tl: "?"}
@@ -88,33 +88,33 @@ layers:
   Left Scroll:
     - {t: Ctrl, h: 1×/H/2×, tl: Q}
     - {t: NWin, h: Alt 2s, tl: W}
-    - {t: ↑, h: Scroll, tl: F}
-    - {t: Esc, tl: P}
-    - {t: PgUp, tl: B}
-    - {t: J, type: trans}
-    - {t: L, type: trans}
-    - {t: U, type: trans}
+    - {t: ↑, h: Scroll, tl: E}
+    - {t: Esc, tl: R}
+    - {t: PgUp, tl: T}
     - {t: Y, type: trans}
-    - {t: "'", type: trans}
-
-    - {t: 4×, tl: A}
-    - {t: ←, h: Scroll, tl: R}
-    - {t: ↓, h: Scroll, tl: S}
-    - {t: →, h: Scroll, tl: T}
-    - {t: PgDn, tl: G}
-    - {t: M, type: trans}
-    - {t: N, type: trans}
-    - {t: E, type: trans}
+    - {t: U, type: trans}
     - {t: I, type: trans}
     - {t: O, type: trans}
+    - {t: P, type: trans}
+
+    - {t: 4×, tl: A}
+    - {t: ←, h: Scroll, tl: S}
+    - {t: ↓, h: Scroll, tl: D}
+    - {t: →, h: Scroll, tl: F}
+    - {t: PgDn, tl: G}
+    - {t: H, type: trans}
+    - {t: J, type: trans}
+    - {t: K, type: trans}
+    - {t: L, type: trans}
+    - {t: "'", type: trans}
 
     - {t: ¼×, tl: Z}
     - {t: L Lock, tl: X}
     - {t: Paste, tl: C}
-    - {t: Copy, tl: D}
-    - {t: Shift, h: 1×/H/2×, tl: V}
-    - {t: K, type: trans}
-    - {t: H, type: trans}
+    - {t: Copy, tl: V}
+    - {t: Shift, h: 1×/H/2×, tl: B}
+    - {t: N, type: trans}
+    - {t: M, type: trans}
     - {t: ",", type: trans}
     - {t: ".", type: trans}
     - {t: "?", type: trans}
@@ -129,33 +129,33 @@ layers:
   Right Scroll:
     - {t: Q, type: trans}
     - {t: W, type: trans}
-    - {t: F, type: trans}
-    - {t: P, type: trans}
-    - {t: B, type: trans}
-    - {t: PgUp, tl: J}
-    - {t: Esc, tl: L}
-    - {t: ↑, h: Scroll, tl: U}
-    - {t: NWin, h: Alt 2s, tl: Y}
-    - {t: Ctrl, h: 1×/H/2×, tl: "'"}
+    - {t: E, type: trans}
+    - {t: R, type: trans}
+    - {t: T, type: trans}
+    - {t: PgUp, tl: Y}
+    - {t: Esc, tl: U}
+    - {t: ↑, h: Scroll, tl: I}
+    - {t: NWin, h: Alt 2s, tl: O}
+    - {t: Ctrl, h: 1×/H/2×, tl: P}
 
     - {t: A, type: trans}
-    - {t: R, type: trans}
     - {t: S, type: trans}
-    - {t: T, type: trans}
+    - {t: D, type: trans}
+    - {t: F, type: trans}
     - {t: G, type: trans}
-    - {t: PgDn, tl: M}
-    - {t: ←, h: Scroll, tl: N}
-    - {t: ↓, h: Scroll, tl: E}
-    - {t: →, h: Scroll, tl: I}
-    - {t: 4×, tl: O}
+    - {t: PgDn, tl: H}
+    - {t: ←, h: Scroll, tl: J}
+    - {t: ↓, h: Scroll, tl: K}
+    - {t: →, h: Scroll, tl: L}
+    - {t: 4×, tl: "'"}
 
     - {t: Z, type: trans}
     - {t: X, type: trans}
     - {t: C, type: trans}
-    - {t: D, type: trans}
     - {t: V, type: trans}
-    - {t: Shift, h: 1×/H/2×, tl: K}
-    - {t: Copy, tl: H}
+    - {t: B, type: trans}
+    - {t: Shift, h: 1×/H/2×, tl: N}
+    - {t: Copy, tl: M}
     - {t: Paste, tl: ","}
     - {t: L Lock, tl: "."}
     - {t: ¼×, tl: "?"}

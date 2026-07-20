@@ -1,7 +1,8 @@
-# Corne ZMK config
+# Corne ZMK config (QWERTY)
 
-Personal 36-key Corne firmware for `nice_nano@2.0.0`, with separate builds for
-the left and right halves. The configuration pins ZMK and its modules in
+Personal 36-key QWERTY Corne firmware for `nice_nano@2.0.0`, with separate
+builds for the left and right halves. The configuration pins ZMK and its
+modules in
 [`config/west.yml`](config/west.yml); GitHub Actions builds the targets declared
 in [`build.yaml`](build.yaml).
 
@@ -15,7 +16,7 @@ Sys.
 
 ## Mouse layer
 
-Press `Q+W` from Base, Nav, or Num to enter Mouse Left, or `Y+'` to enter Mouse
+Press `Q+W` from Base, Nav, or Num to enter Mouse Left, or `O+P` to enter Mouse
 Right. Only the selected hand receives mouse bindings; the other hand remains
 on Base and is free for normal typing. The entry combo on the selected hand
 also exits Mouse. Because entry uses `&to`, Mouse Left and Mouse Right cannot be
@@ -30,17 +31,17 @@ The Pointer diagram contains both one-hand alternatives. The same keys in
 
 | Left hand | Right hand | SVG | Action |
 | --- | --- | --- | --- |
-| `B` / `G` | `J` / `M` | `⇞` / `⇟` | Page up / page down |
-| `P` | `L` | `Esc` | Escape |
-| `W` | `Y` | `NWin` | Alt+Tab; keeps Alt held for two seconds |
-| `F` `R` `S` `T` | `U` `N` `E` `I` | `↑` `←` `↓` `→` | Move or scroll up / left / down / right |
-| `A` / `Z` | `O` / `?` | `🐇` / `🐢` | Hold for 4x / 1/4x movement or scroll speed |
-| `Q` / `V` | `'` / `K` | `Ctrl` / `Shift` | Tap one-shot, hold momentary, double-tap lock |
-| `D` / `C` | `H` / `,` | `Copy` / `Paste` | Ctrl+C / Ctrl+V; Shift adds Ctrl+Shift |
+| `T` / `G` | `Y` / `H` | `⇞` / `⇟` | Page up / page down |
+| `R` | `U` | `Esc` | Escape |
+| `W` | `O` | `NWin` | Alt+Tab; keeps Alt held for two seconds |
+| `E` `S` `D` `F` | `I` `J` `K` `L` | `↑` `←` `↓` `→` | Move or scroll up / left / down / right |
+| `A` / `Z` | `'` / `?` | `🐇` / `🐢` | Hold for 4x / 1/4x movement or scroll speed |
+| `Q` / `B` | `P` / `N` | `Ctrl` / `Shift` | Tap one-shot, hold momentary, double-tap lock |
+| `V` / `C` | `M` / `,` | `Copy` / `Paste` | Ctrl+C / Ctrl+V; Shift adds Ctrl+Shift |
 | `X` | `.` | `L Lock` | Hold LMB until the active LMB thumb or Mouse exit |
 | Active thumbs | Active thumbs | `R● M● L●` / `L● M● R●` | Right / middle / left click, mirrored by hand |
 
-In Scroll mode, `F R S T` or `U N E I` scroll up, left, down, and right. The
+In Scroll mode, `E S D F` or `I J K L` scroll up, left, down, and right. The
 speed keys apply the same 4x and 1/4x scaling to pointer movement and scrolling.
 They use Mouse-specific layers, so layer keys on the free hand cannot change
 pointer speed.
@@ -51,9 +52,9 @@ double-tap. Shift therefore changes Copy/Paste into Ctrl+Shift+C/V. Exiting
 Mouse releases Ctrl, Shift, Alt, and all mouse buttons, clears every Mouse
 sublayer, and returns the next entry to Pointer mode.
 
-`W` or `Y` presses Alt+Tab and keeps Alt held for two seconds after release, so
+`W` or `O` presses Alt+Tab and keeps Alt held for two seconds after release, so
 repeated taps move through the visible window switcher. Hold the active hand's
-Shift key (`V` or `K`) while tapping the window key to move backward. Any other
+Shift key (`B` or `N`) while tapping the window key to move backward. Any other
 key or the two-second timeout releases Alt.
 
 The LMB lock holds only left click, with no timeout. Press the active LMB thumb
@@ -63,10 +64,10 @@ or exit Mouse to release it. RMB and MMB remain ordinary thumb clicks.
 
 | Left hand | Right hand | SVG | Action |
 | --- | --- | --- | --- |
-| `Q+W` | `Y+'` | `Mouse L` / `Mouse R` | Enter the selected hand or exit it |
-| `A+Z` | `O+?` | `🖱↕` | Switch Pointer / Scroll mode |
-| `B+G` | `J+M` | `🕘` | Clipboard history |
-| `G+V` | `M+K` | `📸` | Screen snip |
+| `Q+W` | `O+P` | `Mouse L` / `Mouse R` | Enter the selected hand or exit it |
+| `A+Z` | `'+?` | `🖱↕` | Switch Pointer / Scroll mode |
+| `T+G` | `Y+H` | `🕘` | Clipboard history |
+| `G+B` | `H+N` | `📸` | Screen snip |
 
 The existing Base/Nav/Num combos remain unchanged; the table above lists the
 combos active on the selected Mouse hand and its Scroll/LMB-lock sublayers.
@@ -79,12 +80,12 @@ Clipboard history and screen snip use the Windows shortcuts `Win+V` and
 
 - Mouse Left and Mouse Right are mirrored alternatives. Only one is active, so
   the other hand retains the Base keymap.
-- `F R S T` and `U N E I` keep directions spatially oriented on their half.
-  Switching to Scroll changes the behavior, not the direction map; `B G` and
-  `J M` likewise provide page up/down.
-- `W` and `Y` provide a timed Alt+Tab session; Shift reverses it. `P` and `L`
+- `E S D F` and `I J K L` keep directions spatially oriented on their half.
+  Switching to Scroll changes the behavior, not the direction map; `T G` and
+  `Y H` likewise provide page up/down.
+- `W` and `O` provide a timed Alt+Tab session; Shift reverses it. `R` and `U`
   provide direct Escape, while Ctrl+PgUp/PgDn handles both tab directions.
-- `A Z` and `O ?` are the fast and precise speed holds. Chording either pair
+- `A Z` and `' ?` are the fast and precise speed holds. Chording either pair
   toggles Pointer/Scroll mode, making the mode switch mnemonic without consuming
   another key.
 - Copy and Paste use Ctrl+C/V so holding or locking Shift produces the terminal
@@ -98,9 +99,9 @@ Clipboard history and screen snip use the Windows shortcuts `Win+V` and
 
 Hold the Enter thumb for Fn, then press:
 
-- `B` for Abstract
+- `T` for Abstract
 - `G` for Reason
-- `V` for Plan
+- `B` for Plan
 
 The prompt macros type without sending Enter. Press a prompt key again while it
 is typing to cancel it.

@@ -13,9 +13,9 @@ This directory contains the reproducible sources for the keymap SVGs:
 
 Hold the Enter thumb to activate the Fn layer, then press:
 
-- `B` for Abstract
+- `T` for Abstract
 - `G` for Reason
-- `V` for Plan
+- `B` for Plan
 
 The prompts type without sending Enter. While a prompt is typing, press any
 prompt key again to stop it immediately. The outer left and right thumb keys
@@ -23,8 +23,8 @@ are Backspace and Right Arrow, respectively.
 
 Other Fn-layer shortcuts include:
 
-- `'` for screen brightness up
-- `O` for screen brightness down
+- `P` for screen brightness up
+- `'` for screen brightness down
 - `?` for the external-display switcher (`GUI+P`, or `Win+P` on Windows)
 
 Regenerate the SVG with the pinned keymap-drawer version:
