@@ -43,10 +43,16 @@ uvx --from keymap-drawer==0.23.0 keymap \
   draw draw/mouse-layer.yaml -s Scroll -o mouse-scroll.svg
 ```
 
-`LOCK` means the key or mouse button remains held until its toggle is pressed
+`🔒` means the key or mouse button remains held until its toggle is pressed
 again. Selecting another mouse-button lock transfers the hold; exiting Mouse
-releases it. `P/S` switches the directional keys between Pointer and Scroll
-mode; `4x` and `1/4x` are held speed modifiers in either mode.
+releases it. `🖱↕` switches the directional keys between Pointer and Scroll
+mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode.
+
+Mouse diagram legend: `⇞`/`⇟` are page up/down; `PTab`/`NTab` and
+`PWin`/`NWin` are previous/next tab and window; `⧉`/`✂`/`📋` are
+copy/cut/paste; `🕘` is clipboard history; `📸` is screen snip;
+`×`/`＋`/`↶` are close/new/reopen tab; and `R●`/`M●`/`L●` are the
+three mouse-button thumbs.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.
