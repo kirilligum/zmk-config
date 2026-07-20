@@ -189,7 +189,7 @@ layers:
     - {t: Ctrl, h: 1×/H/2×}
     - {t: NWin, h: Alt 2s}
     - Mouse ↑
-    - PTab
+    - Esc
     - PgUp
     - {type: trans}
     - {type: trans}
@@ -229,7 +229,7 @@ layers:
     - {type: trans}
     - {type: trans}
     - PgUp
-    - PTab
+    - Esc
     - Mouse ↑
     - {t: NWin, h: Alt 2s}
     - {t: Ctrl, h: 1×/H/2×}

@@ -31,7 +31,7 @@ The Pointer diagram contains both one-hand alternatives. The same keys in
 | Left hand | Right hand | SVG | Action |
 | --- | --- | --- | --- |
 | `B` / `G` | `J` / `M` | `⇞` / `⇟` | Page up / page down |
-| `P` | `L` | `PTab` | Previous tab |
+| `P` | `L` | `Esc` | Escape |
 | `W` | `Y` | `NWin` | Alt+Tab; keeps Alt held for two seconds |
 | `F` `R` `S` `T` | `U` `N` `E` `I` | `↑` `←` `↓` `→` | Move or scroll up / left / down / right |
 | `A` / `Z` | `O` / `?` | `🐇` / `🐢` | Hold for 4x / 1/4x movement or scroll speed |
@@ -83,8 +83,7 @@ Clipboard history and screen snip use the Windows shortcuts `Win+V` and
   Switching to Scroll changes the behavior, not the direction map; `B G` and
   `J M` likewise provide page up/down.
 - `W` and `Y` provide a timed Alt+Tab session; Shift reverses it. `P` and `L`
-  retain direct previous-tab access, while Ctrl+PgUp/PgDn handles both tab
-  directions.
+  provide direct Escape, while Ctrl+PgUp/PgDn handles both tab directions.
 - `A Z` and `O ?` are the fast and precise speed holds. Chording either pair
   toggles Pointer/Scroll mode, making the mode switch mnemonic without consuming
   another key.

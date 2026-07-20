@@ -38,7 +38,6 @@ parse_config:
     "&magic_shift": { "t": Magic, "h": "Shift" }
     "&to MOUSE_L": Mouse L
     "&to MOUSE_R": Mouse R
-    "&kp LC(LS(TAB))": PTab
     "&kp LC(TAB)": NTab
     "&kt LCTRL": { "t": Ctrl, "h": LOCK }
     "&kt LSHFT": { "t": Shift, "h": LOCK }

@@ -7,7 +7,7 @@ layers:
     - {t: Ctrl, h: 1×/H/2×, tl: Q}
     - {t: NWin, h: Alt 2s, tl: W}
     - {t: ↑, h: Mouse, tl: F}
-    - {t: PTab, tl: P}
+    - {t: Esc, tl: P}
     - {t: PgUp, tl: B}
     - {t: J, type: trans}
     - {t: L, type: trans}
@@ -51,7 +51,7 @@ layers:
     - {t: P, type: trans}
     - {t: B, type: trans}
     - {t: PgUp, tl: J}
-    - {t: PTab, tl: L}
+    - {t: Esc, tl: L}
     - {t: ↑, h: Mouse, tl: U}
     - {t: NWin, h: Alt 2s, tl: Y}
     - {t: Ctrl, h: 1×/H/2×, tl: "'"}
@@ -89,7 +89,7 @@ layers:
     - {t: Ctrl, h: 1×/H/2×, tl: Q}
     - {t: NWin, h: Alt 2s, tl: W}
     - {t: ↑, h: Scroll, tl: F}
-    - {t: PTab, tl: P}
+    - {t: Esc, tl: P}
     - {t: PgUp, tl: B}
     - {t: J, type: trans}
     - {t: L, type: trans}
@@ -133,7 +133,7 @@ layers:
     - {t: P, type: trans}
     - {t: B, type: trans}
     - {t: PgUp, tl: J}
-    - {t: PTab, tl: L}
+    - {t: Esc, tl: L}
     - {t: ↑, h: Scroll, tl: U}
     - {t: NWin, h: Alt 2s, tl: Y}
     - {t: Ctrl, h: 1×/H/2×, tl: "'"}

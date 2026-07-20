@@ -55,7 +55,7 @@ thumb or Mouse exit releases it. Exiting Mouse also releases every mouse button
 plus Ctrl, Shift, and Alt, clears the selected hand's sublayers, and returns its
 next entry to Pointer mode.
 
-Mouse diagram legend: `PgUp`/`PgDn` are page movement; `PTab` is previous tab;
+Mouse diagram legend: `PgUp`/`PgDn` are page movement; `Esc` is Escape;
 `NWin` is next window; `Clip` is clipboard history; `Snip` is screen snip; and
 `L●`/`M●`/`R●` mirror the three direct mouse-button thumbs between hands.
 
