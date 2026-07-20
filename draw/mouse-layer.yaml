@@ -4,47 +4,47 @@ layout:
 
 layers:
   Pointer:
-    - {t: PgUp, s: J}
-    - {t: PTab, s: L}
-    - {t: ↑, h: Mouse, s: U}
-    - {t: NTab, s: Y}
-    - {t: Ctrl, h: LOCK, s: "'"}
-    - {t: PgDn, s: M}
-    - {t: ←, h: Mouse, s: N}
-    - {t: ↓, h: Mouse, s: E}
-    - {t: →, h: Mouse, s: I}
-    - {t: 4×, s: O}
-    - {t: Shift, h: LOCK, s: K}
-    - {t: Copy, s: H}
-    - {t: Cut, s: ","}
-    - {t: Paste, s: "."}
-    - {t: ¼×, s: "?"}
+    - {t: PgUp, tl: J}
+    - {t: PTab, tl: L}
+    - {t: ↑, h: Mouse, tl: U}
+    - {t: NTab, tl: Y}
+    - {t: Ctrl, h: LOCK, tl: "'"}
+    - {t: PgDn, tl: M}
+    - {t: ←, h: Mouse, tl: N}
+    - {t: ↓, h: Mouse, tl: E}
+    - {t: →, h: Mouse, tl: I}
+    - {t: 4×, tl: O}
+    - {t: Shift, h: LOCK, tl: K}
+    - {t: Copy, tl: H}
+    - {t: Cut, tl: ","}
+    - {t: Paste, tl: "."}
+    - {t: ¼×, tl: "?"}
     - Right Click
     - Middle Click
     - Left Click
 
   Scroll:
-    - {t: PgUp, s: J}
-    - {t: PTab, s: L}
-    - {t: ↑, h: Scroll, s: U}
-    - {t: NTab, s: Y}
-    - {t: Ctrl, h: LOCK, s: "'"}
-    - {t: PgDn, s: M}
-    - {t: ←, h: Scroll, s: N}
-    - {t: ↓, h: Scroll, s: E}
-    - {t: →, h: Scroll, s: I}
-    - {t: 4×, s: O}
-    - {t: Shift, h: LOCK, s: K}
-    - {t: Copy, s: H}
-    - {t: Cut, s: ","}
-    - {t: Paste, s: "."}
-    - {t: ¼×, s: "?"}
+    - {t: PgUp, tl: J}
+    - {t: PTab, tl: L}
+    - {t: ↑, h: Scroll, tl: U}
+    - {t: NTab, tl: Y}
+    - {t: Ctrl, h: LOCK, tl: "'"}
+    - {t: PgDn, tl: M}
+    - {t: ←, h: Scroll, tl: N}
+    - {t: ↓, h: Scroll, tl: E}
+    - {t: →, h: Scroll, tl: I}
+    - {t: 4×, tl: O}
+    - {t: Shift, h: LOCK, tl: K}
+    - {t: Copy, tl: H}
+    - {t: Cut, tl: ","}
+    - {t: Paste, tl: "."}
+    - {t: ¼×, tl: "?"}
     - Right Click
     - Middle Click
     - Left Click
 
 combos:
-  - {p: [0, 5], k: ClipHist, l: [Pointer, Scroll]}
+  - {p: [0, 5], k: Hist, l: [Pointer, Scroll]}
   - {p: [5, 10], k: Snip, l: [Pointer, Scroll]}
 
   - {p: [1, 2], k: Close, l: [Pointer, Scroll], a: top}
@@ -54,7 +54,7 @@ combos:
 
   - {p: [1, 6], k: PWin, l: [Pointer, Scroll]}
   - {p: [3, 8], k: NWin, l: [Pointer, Scroll]}
-  - {p: [9, 14], k: P⇄S, l: [Pointer, Scroll]}
+  - {p: [9, 14], k: P/S, l: [Pointer, Scroll]}
 
   - {p: [11, 12], k: R Lock, l: [Pointer, Scroll], a: bottom}
   - {p: [11, 13], k: M Lock, l: [Pointer, Scroll], a: bottom, o: 0.35}

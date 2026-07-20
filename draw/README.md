@@ -44,8 +44,9 @@ uvx --from keymap-drawer==0.23.0 keymap \
 ```
 
 `LOCK` means the key or mouse button remains held until its toggle is pressed
-again. `P⇄S` switches the directional keys between Pointer and Scroll mode;
-`4x` and `1/4x` are held speed modifiers in either mode.
+again. Selecting another mouse-button lock transfers the hold; exiting Mouse
+releases it. `P/S` switches the directional keys between Pointer and Scroll
+mode; `4x` and `1/4x` are held speed modifiers in either mode.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.

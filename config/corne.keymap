@@ -1,11 +1,11 @@
 #define CONFIG_WIRELESS
-#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                   \
+#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, LO, RO)           \
     ZMK_LAYER(                                                                 \
         name,                                                                  \
                  LT RT                                                         \
                  LM RM                                                         \
                  LB RB                                                         \
-        &kp BSPC LH RH &kp RIGHT                                               \
+                 LO LH RH RO                                                   \
     )
 
 #include "zmk-helpers/key-labels/36.h"
