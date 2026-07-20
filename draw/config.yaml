@@ -20,6 +20,8 @@ parse_config:
     "&kp LC(INS)": Copy
     "&kp LC(X)": Cut
     "&kp LS(INS)": Paste
+    "&kp LC(C)": Copy
+    "&kp LC(V)": Paste
 
     "&kp LG(LC(LEFT))": PDesk
     "&kp LG(LC(RIGHT))": NDesk
@@ -34,14 +36,22 @@ parse_config:
     "&dot_spc": Sentence
     "&num_dance": { "t": "Smart"}
     "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&to MOUSE": Mouse
+    "&to MOUSE_L": Mouse L
+    "&to MOUSE_R": Mouse R
     "&kp LC(LS(TAB))": PTab
     "&kp LC(TAB)": NTab
     "&kt LCTRL": { "t": Ctrl, "h": LOCK }
     "&kt LSHFT": { "t": Shift, "h": LOCK }
-    "&mo NAV": 4×
-    "&mo FN": ¼×
-    "&tog MOUSE_SCROLL": P/S
+    "&mouse_ctrl LCTRL 0": { "t": Ctrl, "h": "1×/H/2×" }
+    "&mouse_shift LSHFT 0": { "t": Shift, "h": "1×/H/2×" }
+    "&mouse_window_left": { "t": NWin, "h": "Alt 2s" }
+    "&mouse_window_right": { "t": NWin, "h": "Alt 2s" }
+    "&mouse_left_l_lock_on": L Lock
+    "&mouse_right_l_lock_on": L Lock
+    "&mo MOUSE_FAST": 4×
+    "&mo MOUSE_PRECISION": ¼×
+    "&tog MOUSE_L_SCROLL": P/S
+    "&tog MOUSE_R_SCROLL": P/S
     "&prompt_reasoning": Reason
     "&prompt_execution": Abstract
     "&prompt_both": Plan

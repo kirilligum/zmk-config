@@ -21,11 +21,11 @@
 
 &mmv_input_listener {
   warp {
-    layers = <NAV>;
+    layers = <MOUSE_FAST>;
     input-processors = <&zip_xy_scaler 4 1>;
   };
   precision {
-    layers = <FN>;
+    layers = <MOUSE_PRECISION>;
     input-processors = <&zip_xy_scaler 1 4>;
   };
 };
@@ -42,55 +42,60 @@
 
 &msc_input_listener {
   warp {
-    layers = <NAV>;
+    layers = <MOUSE_FAST>;
     input-processors = <&zip_scroll_scaler 4 1>;
   };
   precision {
-    layers = <FN>;
+    layers = <MOUSE_PRECISION>;
     input-processors = <&zip_scroll_scaler 1 4>;
   };
 };
 
-// Persistent mouse-button locks. A lock layer records the held button so the
-// same combo releases it; choosing another lock transfers the hold.
-#define MOUSE_LOCK_ON(NAME, BUTTON, LAYER)                                    \
-  ZMK_MACRO(NAME, wait-ms = <0>; tap-ms = <0>;                               \
-            bindings = <&macro_press &mkp BUTTON &tog LAYER>;)
+// Tap for one-shot, hold for momentary, and double-tap for a persistent lock.
+ZMK_TAP_DANCE(mouse_ctrl_tap, bindings = <&sk LCTRL>, <&kt LCTRL>;
+              tapping-term-ms = <200>;)
+ZMK_HOLD_TAP(mouse_ctrl, bindings = <&kp>, <&mouse_ctrl_tap>;
+             flavor = "hold-preferred"; tapping-term-ms = <200>;)
 
-#define MOUSE_LOCK_OFF(NAME, BUTTON, LAYER)                                   \
+ZMK_TAP_DANCE(mouse_shift_tap, bindings = <&sk LSHFT>, <&kt LSHFT>;
+              tapping-term-ms = <200>;)
+ZMK_HOLD_TAP(mouse_shift, bindings = <&kp>, <&mouse_shift_tap>;
+             flavor = "hold-preferred"; tapping-term-ms = <200>;)
+
+// The mouse window switcher keeps Alt held for two seconds after each Tab.
+ZMK_KEY_TOGGLE(mouse_key_on, toggle-mode = "on";)
+ZMK_KEY_TOGGLE(mouse_key_off, toggle-mode = "off";)
+ZMK_TRI_STATE(mouse_window_left,
+              bindings = <&mouse_key_on LALT>, <&kp TAB>, <&mouse_key_off LALT>;
+              ignored-key-positions = <LB0>; timeout-ms = <2000>;)
+ZMK_TRI_STATE(mouse_window_right,
+              bindings = <&mouse_key_on LALT>, <&kp TAB>, <&mouse_key_off LALT>;
+              ignored-key-positions = <RB0>; timeout-ms = <2000>;)
+
+// LMB lock: the dedicated key holds the button; LMB or Mouse exit releases it.
+#define MOUSE_L_LOCK_ON(NAME, LAYER)                                          \
   ZMK_MACRO(NAME, wait-ms = <0>; tap-ms = <0>;                               \
-            bindings = <&macro_release &mkp BUTTON                            \
+            bindings = <&macro_press &mkp LCLK &tog LAYER>;)
+
+#define MOUSE_L_LOCK_OFF(NAME, LAYER)                                         \
+  ZMK_MACRO(NAME, wait-ms = <0>; tap-ms = <0>;                               \
+            bindings = <&macro_release &mkp LCLK                              \
                         &macro_press &tog LAYER>;)
 
-#define MOUSE_LOCK_SWITCH(NAME, FROM_BUTTON, TO_BUTTON, FROM_LAYER, TO_LAYER) \
-  ZMK_MACRO(NAME, wait-ms = <0>; tap-ms = <0>;                               \
-            bindings = <&macro_release &mkp FROM_BUTTON                       \
-                        &macro_press &mkp TO_BUTTON                           \
-                        &tog FROM_LAYER &tog TO_LAYER>;)
+MOUSE_L_LOCK_ON(mouse_left_l_lock_on, MOUSE_L_LOCK)
+MOUSE_L_LOCK_OFF(mouse_left_l_lock_off, MOUSE_L_LOCK)
+MOUSE_L_LOCK_ON(mouse_right_l_lock_on, MOUSE_R_LOCK)
+MOUSE_L_LOCK_OFF(mouse_right_l_lock_off, MOUSE_R_LOCK)
 
-#define MOUSE_LOCK_EXIT(NAME, BUTTON)                                         \
-  ZMK_MACRO(NAME, wait-ms = <0>; tap-ms = <0>;                               \
-            bindings = <&macro_release &mkp BUTTON                            \
-                        &macro_press &to DEF>;)
-
-MOUSE_LOCK_ON(mouse_r_lock_on, RCLK, MOUSE_R_LOCK)
-MOUSE_LOCK_ON(mouse_m_lock_on, MCLK, MOUSE_M_LOCK)
-MOUSE_LOCK_ON(mouse_l_lock_on, LCLK, MOUSE_L_LOCK)
-
-MOUSE_LOCK_OFF(mouse_r_lock_off, RCLK, MOUSE_R_LOCK)
-MOUSE_LOCK_OFF(mouse_m_lock_off, MCLK, MOUSE_M_LOCK)
-MOUSE_LOCK_OFF(mouse_l_lock_off, LCLK, MOUSE_L_LOCK)
-
-MOUSE_LOCK_SWITCH(mouse_r_to_m, RCLK, MCLK, MOUSE_R_LOCK, MOUSE_M_LOCK)
-MOUSE_LOCK_SWITCH(mouse_r_to_l, RCLK, LCLK, MOUSE_R_LOCK, MOUSE_L_LOCK)
-MOUSE_LOCK_SWITCH(mouse_m_to_r, MCLK, RCLK, MOUSE_M_LOCK, MOUSE_R_LOCK)
-MOUSE_LOCK_SWITCH(mouse_m_to_l, MCLK, LCLK, MOUSE_M_LOCK, MOUSE_L_LOCK)
-MOUSE_LOCK_SWITCH(mouse_l_to_r, LCLK, RCLK, MOUSE_L_LOCK, MOUSE_R_LOCK)
-MOUSE_LOCK_SWITCH(mouse_l_to_m, LCLK, MCLK, MOUSE_L_LOCK, MOUSE_M_LOCK)
-
-MOUSE_LOCK_EXIT(mouse_r_lock_exit, RCLK)
-MOUSE_LOCK_EXIT(mouse_m_lock_exit, MCLK)
-MOUSE_LOCK_EXIT(mouse_l_lock_exit, LCLK)
+// Mouse exit is a hard cleanup boundary: release every possible held button,
+// force mouse-held modifiers off, clear Mouse sublayers, and return to Base.
+ZMK_MACRO(mouse_clear_exit, wait-ms = <0>; tap-ms = <0>;
+          bindings = <&macro_release &mkp RCLK &mkp MCLK &mkp LCLK
+                      &macro_press &mouse_key_off LCTRL
+                      &mouse_key_off LCTRL
+                      &mouse_key_off LSHFT
+                      &mouse_key_off LSHFT
+                      &mouse_key_off LALT &to DEF>;)
 
 #define U_MS_U &mmv MOVE_UP
 #define U_MS_D &mmv MOVE_DOWN

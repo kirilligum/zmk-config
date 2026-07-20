@@ -3,8 +3,8 @@
 This directory contains the reproducible sources for the keymap SVGs:
 
 - `keymap.yaml` is the parsed 36-key keymap-drawer model.
-- `mouse-layer.yaml` is the focused bilateral Mouse layer model, including
-  Pointer and Scroll modes and their layer-specific combos on both halves.
+- `mouse-layer.yaml` is the focused Mouse Left/Mouse Right model, including
+  Pointer and Scroll modes and the active-hand-only combos.
 - `mouse-layout.json` defines the two 3x5 grids and mirrored three-key thumb
   fans.
 - `config.yaml` contains the ZMK parser mappings and light-only SVG theme.
@@ -38,24 +38,26 @@ Generate the focused bilateral 3x5+3 Mouse layer diagrams with:
 
 ```sh
 uvx --from keymap-drawer==0.23.0 keymap \
-  draw draw/mouse-layer.yaml -s Pointer -o mouse-pointer.svg
+  draw draw/mouse-layer.yaml -s "Left Pointer" "Right Pointer" -o mouse-pointer.svg
 
 uvx --from keymap-drawer==0.23.0 keymap \
-  draw draw/mouse-layer.yaml -s Scroll -o mouse-scroll.svg
+  draw draw/mouse-layer.yaml -s "Left Scroll" "Right Scroll" -o mouse-scroll.svg
 ```
 
-`🔒` means the key or mouse button remains held until its toggle is pressed
-again. Selecting another mouse-button lock transfers the hold; exiting Mouse
-releases it. `🖱↕` switches the directional keys between Pointer and Scroll
-mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode. Mode
-and button-lock state are shared between halves and can be changed from either
-hand.
+`1×/H/2×` means tap for one-shot, hold for momentary, and double-tap for a
+persistent modifier lock. `NWin / Alt 2s` is the timed Alt+Tab switcher. `P/S`
+switches the active hand's directional keys between Pointer and Scroll; `4×`
+and `¼×` are held speed modifiers in either mode. Transparent keys show the
+inactive hand, which remains on Base.
 
-Mouse diagram legend: `⇞`/`⇟` are page up/down; `PTab`/`NTab` and
-`PWin`/`NWin` are previous/next tab and window; `⧉`/`✂`/`📋` are
-copy/cut/paste; `🕘` is clipboard history; `📸` is screen snip;
-`×`/`＋`/`↶` are close/new/reopen tab; and `L●`/`M●`/`R●` mirror the
-three mouse-button thumbs between hands.
+`L Lock` on `X` or `.` holds left click without a timeout until the active LMB
+thumb or Mouse exit releases it. Exiting Mouse also releases every mouse button
+plus Ctrl, Shift, and Alt, clears the selected hand's sublayers, and returns its
+next entry to Pointer mode.
+
+Mouse diagram legend: `PgUp`/`PgDn` are page movement; `PTab` is previous tab;
+`NWin` is next window; `Clip` is clipboard history; `Snip` is screen snip; and
+`L●`/`M●`/`R●` mirror the three direct mouse-button thumbs between hands.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.

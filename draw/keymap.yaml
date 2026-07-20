@@ -185,43 +185,80 @@ layers:
     - {type: held}
     - {type: trans}
     - Right
-  Mouse:
-    - {t: Ctrl, h: LOCK}
-    - PTab
+  Mouse Left:
+    - {t: Ctrl, h: 1×/H/2×}
+    - {t: NWin, h: Alt 2s}
     - Mouse ↑
-    - NTab
-    - PgUp
-    - PgUp
     - PTab
-    - Mouse ↑
-    - NTab
-    - {t: Ctrl, h: LOCK}
+    - PgUp
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
     - 4×
     - Mouse ←
     - Mouse ↓
     - Mouse →
     - PgDn
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - ¼×
+    - L Lock
+    - Paste
+    - Copy
+    - {t: Shift, h: 1×/H/2×}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - Right Click
+    - Middle Click
+    - Left Click
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+  Mouse Right:
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - PgUp
+    - PTab
+    - Mouse ↑
+    - {t: NWin, h: Alt 2s}
+    - {t: Ctrl, h: 1×/H/2×}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
     - PgDn
     - Mouse ←
     - Mouse ↓
     - Mouse →
     - 4×
-    - ¼×
-    - Paste
-    - Cut
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {t: Shift, h: 1×/H/2×}
     - Copy
-    - {t: Shift, h: LOCK}
-    - {t: Shift, h: LOCK}
-    - Copy
-    - Cut
     - Paste
+    - L Lock
     - ¼×
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
     - Left Click
     - Middle Click
     - Right Click
-    - Right Click
-    - Middle Click
-    - Left Click
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:
@@ -229,10 +266,10 @@ combos:
     k: Esc
     l: [Combos]
   - p: [0, 1]
-    k: Mouse
+    k: Mouse L
     l: [Combos]
   - p: [8, 9]
-    k: Mouse
+    k: Mouse R
     l: [Combos]
   - p: [11, 12]
     k: Tab

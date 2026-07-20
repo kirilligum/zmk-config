@@ -17,13 +17,17 @@
 #define FN 2
 #define NUM 3
 #define SYS 4
-#define MOUSE 5
-#define MOUSE_SCROLL 6
-#define MOUSE_R_LOCK 7
-#define MOUSE_M_LOCK 8
+#define MOUSE_FAST 5
+#define MOUSE_PRECISION 6
+#define MOUSE_L 7
+#define MOUSE_L_SCROLL 8
 #define MOUSE_L_LOCK 9
+#define MOUSE_R 10
+#define MOUSE_R_SCROLL 11
+#define MOUSE_R_LOCK 12
 
-#define MOUSE_LAYERS MOUSE MOUSE_SCROLL MOUSE_R_LOCK MOUSE_M_LOCK MOUSE_L_LOCK
+#define MOUSE_L_LAYERS MOUSE_L MOUSE_L_SCROLL MOUSE_L_LOCK
+#define MOUSE_R_LAYERS MOUSE_R MOUSE_R_SCROLL MOUSE_R_LOCK
 
 #define XXX &none
 #define ___ &trans
@@ -253,24 +257,38 @@ ZMK_BASE_LAYER(Sys,
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
-ZMK_BASE_LAYER(Mouse,
+ZMK_BASE_LAYER(MouseFast,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___, ___ ___, ___, ___
+)
+
+ZMK_BASE_LAYER(MousePrecision,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___, ___ ___, ___, ___
+)
+
+ZMK_BASE_LAYER(MouseLeft,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kt LCTRL     &kp LC(LS(TAB)) U_MS_U       &kp LC(TAB) &kp PG_UP    ,   &kp PG_UP     &kp LC(LS(TAB)) U_MS_U       &kp LC(TAB) &kt LCTRL   ,
+    &mouse_ctrl LCTRL 0 &mouse_window_left U_MS_U &kp LC(LS(TAB)) &kp PG_UP, ___ ___ ___ ___ ___,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mo NAV       U_MS_L        U_MS_D         U_MS_R        &kp PG_DN   ,   &kp PG_DN     U_MS_L        U_MS_D         U_MS_R       &mo NAV     ,
+    &mo MOUSE_FAST U_MS_L U_MS_D U_MS_R &kp PG_DN, ___ ___ ___ ___ ___,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &mo FN        &kp LS(INS)   &kp LC(X)      &kp LC(INS)   &kt LSHFT   ,   &kt LSHFT     &kp LC(INS)   &kp LC(X)      &kp LS(INS)  &mo FN      ,
+    &mo MOUSE_PRECISION &mouse_left_l_lock_on &kp LC(V) &kp LC(C) &mouse_shift LSHFT 0, ___ ___ ___ ___ ___,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &mkp MCLK     &mkp RCLK   ,   &mkp RCLK     &mkp MCLK,
-                                              &mkp LCLK                 ,   &mkp LCLK
+                                              &mkp MCLK     &mkp LCLK   ,   ___           ___,
+                                              &mkp RCLK                 ,   ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
-ZMK_BASE_LAYER(MouseScroll,
+ZMK_BASE_LAYER(MouseLeftScroll,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           U_WH_U        ___           ___         ,   ___           ___           U_WH_U        ___           ___         ,
+    ___           ___           U_WH_U        ___           ___         ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           U_WH_L        U_WH_D        U_WH_R        ___         ,   ___           U_WH_L        U_WH_D        U_WH_R        ___         ,
+    ___           U_WH_L        U_WH_D        U_WH_R        ___         ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -279,15 +297,38 @@ ZMK_BASE_LAYER(MouseScroll,
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
-#define MOUSE_STATE_LAYER(NAME, LEFT_THUMBS, RIGHT_THUMBS, LEFT_OUTER, RIGHT_OUTER) \
-    ZMK_BASE_LAYER(NAME,                                                       \
-        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
-        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
-        ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,                             \
-        LEFT_THUMBS, RIGHT_THUMBS, LEFT_OUTER, RIGHT_OUTER)
+ZMK_BASE_LAYER(MouseLeftLock,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ XXX ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ &mouse_left_l_lock_off, ___ ___, ___, ___
+)
 
-MOUSE_STATE_LAYER(MouseRLock, ___ XXX, XXX ___, ___, ___)
-MOUSE_STATE_LAYER(MouseMLock, XXX ___, ___ XXX, ___, ___)
-MOUSE_STATE_LAYER(MouseLLock, ___ ___, ___ ___, XXX, XXX)
+ZMK_BASE_LAYER(MouseRight,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___ ___ ___ ___ ___, &kp PG_UP &kp LC(LS(TAB)) U_MS_U &mouse_window_right &mouse_ctrl LCTRL 0,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___ ___ ___ ___ ___, &kp PG_DN U_MS_L U_MS_D U_MS_R &mo MOUSE_FAST,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___ ___ ___ ___ ___, &mouse_shift LSHFT 0 &kp LC(C) &kp LC(V) &mouse_right_l_lock_on &mo MOUSE_PRECISION,
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              ___           ___         ,   &mkp LCLK     &mkp MCLK,
+                                              ___                       ,   &mkp RCLK
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
+ZMK_BASE_LAYER(MouseRightScroll,
+    ___ ___ ___ ___ ___, ___ ___ U_WH_U ___ ___,
+    ___ ___ ___ ___ ___, ___ U_WH_L U_WH_D U_WH_R ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___, ___ ___, ___, ___
+)
+
+ZMK_BASE_LAYER(MouseRightLock,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ ___ ___,
+    ___ ___ ___ ___ ___, ___ ___ ___ XXX ___,
+    ___ ___, &mouse_right_l_lock_off ___, ___, ___
+)
 
 /* vim: set ft=c tw=146: */
