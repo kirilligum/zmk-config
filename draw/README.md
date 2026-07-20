@@ -47,7 +47,9 @@ uvx --from keymap-drawer==0.23.0 keymap \
 `🔒` means the key or mouse button remains held until its toggle is pressed
 again. Selecting another mouse-button lock transfers the hold; exiting Mouse
 releases it. `🖱↕` switches the directional keys between Pointer and Scroll
-mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode.
+mode; `🐇` and `🐢` are held 4x and 1/4x speed modifiers in either mode. Mode
+and button-lock state are shared between halves and can be changed from either
+hand.
 
 Mouse diagram legend: `⇞`/`⇟` are page up/down; `PTab`/`NTab` and
 `PWin`/`NWin` are previous/next tab and window; `⧉`/`✂`/`📋` are

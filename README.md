@@ -44,7 +44,9 @@ Ctrl and Shift are true toggles: they do not time out and remain held until the
 same key is pressed again. Mouse-button locks behave the same way, but selecting
 a different button lock transfers the hold, and exiting Mouse releases a locked
 mouse button. Exiting Mouse does not release Ctrl or Shift, so toggle those off
-before leaving the layer.
+before leaving the layer. Pointer/Scroll mode and mouse-button lock state are
+shared: a mode or lock selected with one hand applies to both halves and can be
+toggled or transferred from either hand.
 
 ### Combos
 
