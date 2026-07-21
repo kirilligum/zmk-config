@@ -14,6 +14,13 @@ The outer thumbs are Backspace on the left and Right Arrow on the right. Hold
 Space for Nav, Enter for Fn, and Smart for Num. Fn and Num together activate
 Sys.
 
+The alpha keys use QWERTY while preserving the keyboard's existing physical
+layer positions, combos, and custom punctuation. The right home-row pinky is
+quote (Gui when held); comma shifts to semicolon, dot shifts to colon, and
+question mark shifts to exclamation. Ctrl+Shift with comma or dot produces
+`<` or `>`, and the vertical `K+,` combo produces `/`. Use a US QWERTY host
+layout so the operating system does not remap the firmware's output again.
+
 ## Mouse layer
 
 Press `Q+W` from Base, Nav, or Num to enter Mouse Left, or `O+P` to enter Mouse

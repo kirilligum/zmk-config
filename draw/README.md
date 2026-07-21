@@ -9,6 +9,10 @@ This directory contains the reproducible sources for the keymap SVGs:
   fans.
 - `config.yaml` contains the ZMK parser mappings and light-only SVG theme.
 
+The diagrams use QWERTY alpha labels while retaining the firmware's custom
+punctuation and position-based layers and combos. In particular, the right
+home-row pinky remains quote, and the bottom-right key remains question mark.
+
 ## Prompt keys
 
 Hold the Enter thumb to activate the Fn layer, then press:
