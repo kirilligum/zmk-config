@@ -1,7 +1,7 @@
 # Gallium Colstag Breaking Migration Plan
 
-Status: implemented and locally validated; branch publication, CI, physical
-certification, and merge remain
+Status: implemented, published on `gallium`, and CI-validated; physical
+certification and merge remain
 
 Target branch: `gallium`
 
@@ -33,6 +33,10 @@ Pinned reference inspected for this plan: `21a8a7bb64a80acd67e06b5209e3055968812
 - Combo-collision profiling is intentionally non-blocking and tracked in
   [issue #2](https://github.com/kirilligum/zmk-config/issues/2). Revisit it only
   if real-world use shows repeatable accidental activations.
+- Migration commit `13afa3a` is pushed to `origin/gallium` and handed off in
+  [draft PR #3](https://github.com/kirilligum/zmk-config/pull/3). Both the push
+  and pull-request workflows passed; their `firmware` artifacts were downloaded
+  and verified to contain the 530,944-byte left UF2 and 385,024-byte right UF2.
 
 ## Objective
 
@@ -1017,7 +1021,7 @@ The migration is finished only when all of the following are true:
 - [x] YAML and README files match firmware; all SVGs are regenerated with the
       existing documented keymap-drawer commands and pass visual inspection.
 - [x] Static checks and both local firmware builds pass without new warnings.
-- [ ] PR CI passes and contains both UF2 artifacts.
+- [x] PR CI passes and contains both UF2 artifacts.
 - [ ] Both physical halves are flashed from the certified PR tree.
 - [ ] Every physical certification test passes over required transports.
 - [ ] The certified tree is merged to `main` and main CI/artifacts pass.
