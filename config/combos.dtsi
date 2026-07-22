@@ -15,8 +15,8 @@
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,      LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(mouse_left, &to MOUSE_L, LT4 LT3, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(mouse, &to MOUSE_R, RT3 RT4, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(mouse_left, &to MOUSE_L, LT4 LT1, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(mouse, &to MOUSE_R, RT1 RT4, DEF NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 // Combos overlapping HRMs are set up as hold-taps themselves to allow for instantaneous
 // chording of mods. Custom hold-tap instances can be bootstrapped on the go using the
@@ -78,5 +78,5 @@ ZMK_COMBO(mouse_snip, &kp LG(LS(S)), RM0 RB0, MOUSE_R_LAYERS, MOUSE_COMBO_TERM, 
 // Pointer/scroll mode and Mouse-layer exit. Exit releases all held Mouse state.
 ZMK_COMBO(mouse_left_mode, &tog MOUSE_L_SCROLL, LM4 LB4, MOUSE_L_LAYERS, MOUSE_COMBO_TERM, 0)
 ZMK_COMBO(mouse_mode, &tog MOUSE_R_SCROLL, RM4 RB4, MOUSE_R_LAYERS, MOUSE_COMBO_TERM, 0)
-ZMK_COMBO(mouse_left_exit, &mouse_clear_exit, LT4 LT3, MOUSE_L_LAYERS, MOUSE_COMBO_TERM, 0)
-ZMK_COMBO(mouse_exit, &mouse_clear_exit, RT3 RT4, MOUSE_R_LAYERS, MOUSE_COMBO_TERM, 0)
+ZMK_COMBO(mouse_left_exit, &mouse_clear_exit, LT4 LT1, MOUSE_L_LAYERS, MOUSE_COMBO_TERM, 0)
+ZMK_COMBO(mouse_exit, &mouse_clear_exit, RT1 RT4, MOUSE_R_LAYERS, MOUSE_COMBO_TERM, 0)

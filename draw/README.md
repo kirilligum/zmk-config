@@ -13,9 +13,9 @@ This directory contains the reproducible sources for the keymap SVGs:
 
 Hold the Enter thumb to activate the Fn layer, then press:
 
-- `B` for Abstract
+- `V` for Abstract
 - `G` for Reason
-- `V` for Plan
+- `Z` for Plan
 
 The prompts type without sending Enter. While a prompt is typing, press any
 prompt key again to stop it immediately. The outer left and right thumb keys
@@ -23,9 +23,11 @@ are Backspace and Right Arrow, respectively.
 
 Other Fn-layer shortcuts include:
 
-- `'` for screen brightness up
-- `O` for screen brightness down
+- `,` for screen brightness up
+- `I` for screen brightness down
 - `?` for the external-display switcher (`GUI+P`, or `Win+P` on Windows)
+- `K` / `F` to pin an application / window across desktops
+- `'` for the desktop manager
 
 Regenerate the SVG with the pinned keymap-drawer version:
 
@@ -50,7 +52,7 @@ switches the active hand's directional keys between Pointer and Scroll; `4×`
 and `¼×` are held speed modifiers in either mode. Transparent keys show the
 inactive hand, which remains on Base.
 
-`L Lock` on `X` or `.` holds left click without a timeout until the active LMB
+`L Lock` on `Q` or `.` holds left click without a timeout until the active LMB
 thumb or Mouse exit releases it. Exiting Mouse also releases every mouse button
 plus Ctrl, Shift, and Alt, clears the selected hand's sublayers, and returns its
 next entry to Pointer mode.
@@ -58,6 +60,8 @@ next entry to Pointer mode.
 Mouse diagram legend: `PgUp`/`PgDn` are page movement; `Esc` is Escape;
 `NWin` is next window; `Clip` is clipboard history; `Snip` is screen snip; and
 `L●`/`M●`/`R●` mirror the three direct mouse-button thumbs between hands.
+The small corner legends are the Gallium Colstag Base keys. Mouse entry/exit is
+`B+C` on the left or `Y+,` on the right; Pointer/Scroll mode is `N+X` or `I+?`.
 
 The focused diagrams intentionally use keymap-drawer's default visual style;
 `config.yaml` remains specific to the full `keymap.svg` diagram.

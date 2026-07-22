@@ -1,34 +1,34 @@
 layout: {zmk_keyboard: corne, layout_name: foostan_corne_5col_layout}
 layers:
   Base:
-    - Q
-    - W
-    - F
-    - P
     - B
-    - J
     - L
-    - U
-    - Y
-    - ''''
-    - {t: A, h: Gui}
-    - {t: R, h: Alt}
-    - {t: S, h: Shift}
-    - {t: T, h: Ctrl}
-    - G
-    - M
-    - {t: N, h: Ctrl}
-    - {t: E, h: Shift}
-    - {t: I, h: Alt}
-    - {t: O, h: Gui}
-    - Z
-    - X
-    - C
     - D
+    - C
     - V
-    - K
-    - H
+    - J
+    - Y
+    - O
+    - U
     - {t: ',', s: ;}
+    - {t: N, h: Gui}
+    - {t: R, h: Alt}
+    - {t: T, h: Shift}
+    - {t: S, h: Ctrl}
+    - G
+    - P
+    - {t: H, h: Ctrl}
+    - {t: A, h: Shift}
+    - {t: E, h: Alt}
+    - {t: I, h: Gui}
+    - X
+    - Q
+    - M
+    - W
+    - Z
+    - K
+    - F
+    - {t: "'", s: '"'}
     - {t: ., s: ':'}
     - {t: '?', s: '!'}
     - Bspc
@@ -265,10 +265,10 @@ combos:
   - p: [1, 2]
     k: Esc
     l: [Combos]
-  - p: [0, 1]
+  - p: [0, 3]
     k: Mouse L
     l: [Combos]
-  - p: [8, 9]
+  - p: [6, 9]
     k: Mouse R
     l: [Combos]
   - p: [11, 12]
