@@ -13,18 +13,19 @@
 #endif
 
 #define DEF 0
-#define NAV 1
-#define FN 2
-#define NUM 3
-#define SYS 4
-#define MOUSE_FAST 5
-#define MOUSE_PRECISION 6
-#define MOUSE_L 7
-#define MOUSE_L_SCROLL 8
-#define MOUSE_L_LOCK 9
-#define MOUSE_R 10
-#define MOUSE_R_SCROLL 11
-#define MOUSE_R_LOCK 12
+#define QWERTY 1
+#define NAV 2
+#define FN 3
+#define NUM 4
+#define SYS 5
+#define MOUSE_FAST 6
+#define MOUSE_PRECISION 7
+#define MOUSE_L 8
+#define MOUSE_L_SCROLL 9
+#define MOUSE_L_LOCK 10
+#define MOUSE_R 11
+#define MOUSE_R_SCROLL 12
+#define MOUSE_R_LOCK 13
 
 #define MOUSE_L_LAYERS MOUSE_L MOUSE_L_SCROLL MOUSE_L_LOCK
 #define MOUSE_R_LAYERS MOUSE_R MOUSE_R_SCROLL MOUSE_R_LOCK
@@ -197,6 +198,19 @@ ZMK_BASE_LAYER(Base,
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
+ZMK_BASE_LAYER(Qwerty,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp Q         &kp W         &kp E         &kp R         &kp T       ,   &kp Y         &kp U         &kp I         &kp O         &kp P       ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &hml LGUI A   &hml LALT S   &hml LSHFT D  &hml LCTRL F  &kp G       ,   &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &hmr LGUI SQT,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &comma_morph  &dot_morph    &qexcl      ,
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___,
+                                              ___                       ,   ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp LA(F4)    ___           &kp LS(TAB)   &swapper      ___         ,   &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___         ,
@@ -238,7 +252,7 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Sys,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                               _BT_SEL_KEYS_                            ,   ___           ___           ___           ___           ___         ,
+                               _BT_SEL_KEYS_                            ,   &to DEF       &to QWERTY    ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           &bootloader ,   &bootloader   ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤

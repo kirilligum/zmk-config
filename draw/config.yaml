@@ -36,8 +36,10 @@ parse_config:
     "&dot_spc": Sentence
     "&num_dance": { "t": "Smart"}
     "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&to MOUSE_L": Mouse L
-    "&to MOUSE_R": Mouse R
+    "&mouse_left_enter": Mouse L
+    "&mouse_right_enter": Mouse R
+    "&to DEF": GAL
+    "&to QWERTY": QWE
     "&kp LC(TAB)": NTab
     "&kt LCTRL": { "t": Ctrl, "h": LOCK }
     "&kt LSHFT": { "t": Shift, "h": LOCK }

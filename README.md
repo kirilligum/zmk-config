@@ -1,13 +1,20 @@
-# Corne ZMK Gallium Colstag config
+# Corne ZMK Gallium Colstag + QWERTY config
 
-Personal 36-key Corne firmware for `nice_nano@2.0.0`, with separate builds for
-the left and right halves. The configuration pins ZMK and its modules in
+Personal 36-key Corne firmware with Gallium Colstag as the default alpha base
+and QWERTY as an explicitly selectable second base. It has separate builds for
+the left and right `nice_nano@2.0.0` halves. The configuration pins ZMK and its
+modules in
 [`config/west.yml`](config/west.yml); GitHub Actions builds the targets declared
 in [`build.yaml`](build.yaml).
 
 ## Keymap
 
-![Full Corne keymap](keymap.svg)
+<img src="./overview.svg" alt="Compact Corne keymap: Base in the center, Fn at top-left, Nav at top-right, Num at bottom-left, Sys at bottom-right, and combos below" width="100%" />
+
+The center legends are Base. Corner legends are **Fn** at top-left, **Nav** at
+top-right, **Num** at bottom-left, and **Sys** at bottom-right; the combo map is
+shown separately below the compact keyboard. Mouse is documented in its own
+diagrams. QWERTY appears in the [full layer-by-layer keymap](keymap.svg).
 
 The Base alpha block is Gallium Colstag on a US/QWERTY host layout:
 
@@ -32,48 +39,68 @@ The outer thumbs are Backspace on the left and Right Arrow on the right. Hold
 Space for Nav, Enter for Fn, and Smart for Num. Fn and Num together activate
 Sys. Magic is repeat/sticky Shift on tap and regular Shift on hold.
 
-### Base, Nav, and Num combos
+### QWERTY base
 
-Positions and timings follow the Urob-derived physical combo layout. The
-letter names below describe their Gallium locations.
+QWERTY is the second-lowest layer and changes only the alpha block:
 
-| Keys | Base / Num | Nav |
-| --- | --- | --- |
-| `L+D` | Escape | Escape |
-| `B+C` | Mouse Left | Mouse Left |
-| `Y+,` | Mouse Right | Mouse Right |
-| `R+T` | Tab; hold Alt+Shift | Tab; hold Alt+Shift |
-| `T+S` | Leader; hold Shift+Ctrl | Leader; hold Shift+Ctrl |
-| `R+T+S` | Shift+Leader; hold Alt+Shift+Ctrl | Shift+Leader; hold Alt+Shift+Ctrl |
-| `Q+W` | Cut | Cut |
-| `Q+M` | Copy | Copy |
-| `M+W` | Paste | Paste |
-| `Y+O` | Backspace | Backspace |
-| `O+U` | Delete | Delete |
-| `H+A` | `(`; Shift `<`; hold Ctrl+Shift | `<` |
-| `A+E` | `)`; Shift `>`; hold Alt+Shift | `>` |
-| `F+'` | `[` | `{` |
-| `'+.` | `]` | `}` |
+```text
+Q W E R T | Y U I O P
+A S D F G | H J K L '
+Z X C V B | N M , . ?
+```
 
-The vertical symbol combos are active on Base, Nav, and Num:
+It inherits the same thumbs and shares Nav, Fn, Num, Sys, Mouse, punctuation
+behaviors, and physical combo topology with Gallium. To select the base, hold
+Fn+Num for Sys and use the first two keys on the top-right row: `GAL` at the
+Gallium `J` position returns to Gallium, while `QWE` at the Gallium `Y` position
+selects QWERTY. Selection is explicit rather than toggled. Gallium remains the
+power-on default.
 
-| Left keys | Output | Right keys | Output |
+### Alpha-base, Nav, and Num combos
+
+Positions and timings follow the Urob-derived physical combo layout. Each
+combo stays in the same physical position when the alpha base changes.
+
+| Gallium | QWERTY | Base / Num | Nav |
 | --- | --- | --- | --- |
-| `L+R` | `@` | `J+P` | `^` |
-| `D+T` | `#` | `Y+H` | `+` |
-| `C+S` | `$` | `O+A` | `*` |
-| `V+G` | `%` | `U+E` | `&` |
-| `R+Q` | `` ` `` | `P+K` | `_` |
-| `T+M` | `\` | `H+F` | `-` |
-| `S+W` | `=` | `A+'` | `/` |
-| `G+Z` | `~` | `E+.` | `|` |
+| `L+D` | `W+E` | Escape | Escape |
+| `B+C` | `Q+R` | Mouse Left | Mouse Left |
+| `Y+,` | `U+P` | Mouse Right | Mouse Right |
+| `R+T` | `S+D` | Tab; hold Alt+Shift | Tab; hold Alt+Shift |
+| `T+S` | `D+F` | Leader; hold Shift+Ctrl | Leader; hold Shift+Ctrl |
+| `R+T+S` | `S+D+F` | Shift+Leader; hold Alt+Shift+Ctrl | Shift+Leader; hold Alt+Shift+Ctrl |
+| `Q+W` | `X+V` | Cut | Cut |
+| `Q+M` | `X+C` | Copy | Copy |
+| `M+W` | `C+V` | Paste | Paste |
+| `Y+O` | `U+I` | Backspace | Backspace |
+| `O+U` | `I+O` | Delete | Delete |
+| `H+A` | `J+K` | `(`; Shift `<`; hold Ctrl+Shift | `<` |
+| `A+E` | `K+L` | `)`; Shift `>`; hold Alt+Shift | `>` |
+| `F+'` | `M+,` | `[` | `{` |
+| `'+.` | `,+.` | `]` | `}` |
+
+The vertical symbol combos are active on both alpha bases, Nav, and Num:
+
+| Gallium left | QWERTY left | Output | Gallium right | QWERTY right | Output |
+| --- | --- | --- | --- | --- | --- |
+| `L+R` | `W+S` | `@` | `J+P` | `Y+H` | `^` |
+| `D+T` | `E+D` | `#` | `Y+H` | `U+J` | `+` |
+| `C+S` | `R+F` | `$` | `O+A` | `I+K` | `*` |
+| `V+G` | `T+G` | `%` | `U+E` | `O+L` | `&` |
+| `R+Q` | `S+X` | `` ` `` | `P+K` | `H+N` | `_` |
+| `T+M` | `D+C` | `\` | `H+F` | `J+M` | `-` |
+| `S+W` | `F+V` | `=` | `A+'` | `K+,` | `/` |
+| `G+Z` | `G+B` | `~` | `E+.` | `L+.` | `|` |
 
 ## Mouse layer
 
-Press `B+C` from Base, Nav, or Num to enter Mouse Left, or `Y+,` to enter
-Mouse Right. Only the selected hand receives mouse bindings; the other hand
-remains on Base and is free for normal typing. The same combo exits Mouse.
-Because entry uses `&to`, Mouse Left and Mouse Right cannot be active together.
+Press `B+C` on Gallium (`Q+R` on QWERTY) from either alpha base, Nav, or Num to
+enter Mouse Left. Use `Y+,` on Gallium (`U+P` on QWERTY) for Mouse Right. Only
+the selected hand receives mouse bindings; the other hand remains on the
+selected alpha base and is free for normal typing. The same physical combo
+exits Mouse. Entry deterministically clears the other Mouse mode, so Mouse Left
+and Mouse Right cannot remain active together. It also clears transient
+Nav/Fn/Num/Sys state while preserving the selected alpha base.
 
 ![Mouse Pointer mode](mouse-pointer.svg)
 
@@ -103,7 +130,8 @@ Ctrl and Shift support three gestures: tap for a 900 ms one-shot modifier, hold
 for a normal momentary modifier, or double-tap to lock until the next
 double-tap. Shift therefore changes Copy/Paste into Ctrl+Shift+C/V. Exiting
 Mouse releases Ctrl, Shift, Alt, and all mouse buttons, clears every Mouse
-sublayer, and returns the next entry to Pointer mode.
+sublayer, returns the next entry to Pointer mode, and leaves the selected
+Gallium or QWERTY base unchanged.
 
 `L` or `U` presses Alt+Tab and keeps Alt held for two seconds after release, so
 repeated taps move through the visible window switcher. Hold the active hand's
@@ -131,7 +159,7 @@ shortcuts `Win+V` and `Win+Shift+S`.
 ### Design rationale
 
 - Mouse Left and Mouse Right are mirrored alternatives. Only one is active, so
-  the other hand retains the Base keymap.
+  the other hand retains the selected Gallium or QWERTY base.
 - `D R T S` and `O H A E` keep directions spatially oriented on their half.
   Switching to Scroll changes the behavior, not the direction map; `V G` and
   `J P` likewise provide page up/down.
@@ -149,11 +177,11 @@ shortcuts `Win+V` and `Win+Shift+S`.
 
 ## Prompt shortcuts
 
-Hold the Enter thumb for Fn, then press:
+Hold the Enter thumb for Fn, then press these physical positions:
 
-- `V` for Abstract
-- `G` for Reason
-- `Z` for Plan
+- Gallium `V` / QWERTY `T` for Abstract
+- `G` in either base for Reason
+- Gallium `Z` / QWERTY `B` for Plan
 
 The prompt macros type without sending Enter. Press a prompt key again while it
 is typing to cancel it.

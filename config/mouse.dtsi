@@ -51,6 +51,40 @@
   };
 };
 
+// Mouse is an overlay on the selected alpha base. One-way layer controls make
+// entry and exit deterministic without clearing QWERTY.
+/ {
+  behaviors {
+    layer_on: layer_on {
+      compatible = "zmk,behavior-toggle-layer";
+      #binding-cells = <1>;
+      toggle-mode = "on";
+      locking;
+    };
+
+    layer_off: layer_off {
+      compatible = "zmk,behavior-toggle-layer";
+      #binding-cells = <1>;
+      toggle-mode = "off";
+      locking;
+    };
+  };
+};
+
+#define MOUSE_LAYERS_OFF                                                      \
+    &layer_off MOUSE_FAST &layer_off MOUSE_PRECISION                          \
+    &layer_off MOUSE_L_LOCK &layer_off MOUSE_L_SCROLL &layer_off MOUSE_L      \
+    &layer_off MOUSE_R_LOCK &layer_off MOUSE_R_SCROLL &layer_off MOUSE_R
+
+#define MOUSE_ENTRY_LAYERS_OFF                                                \
+    &layer_off NAV &layer_off FN &layer_off NUM &layer_off SYS                \
+    MOUSE_LAYERS_OFF
+
+ZMK_MACRO(mouse_left_enter, wait-ms = <0>; tap-ms = <0>;
+          bindings = <MOUSE_ENTRY_LAYERS_OFF &layer_on MOUSE_L>;)
+ZMK_MACRO(mouse_right_enter, wait-ms = <0>; tap-ms = <0>;
+          bindings = <MOUSE_ENTRY_LAYERS_OFF &layer_on MOUSE_R>;)
+
 // Tap for one-shot, hold for momentary, and double-tap for a persistent lock.
 ZMK_TAP_DANCE(mouse_ctrl_tap, bindings = <&sk LCTRL>, <&kt LCTRL>;
               tapping-term-ms = <200>;)
@@ -88,14 +122,14 @@ MOUSE_L_LOCK_ON(mouse_right_l_lock_on, MOUSE_R_LOCK)
 MOUSE_L_LOCK_OFF(mouse_right_l_lock_off, MOUSE_R_LOCK)
 
 // Mouse exit is a hard cleanup boundary: release every possible held button,
-// force mouse-held modifiers off, clear Mouse sublayers, and return to Base.
+// force mouse-held modifiers off, and clear Mouse without changing alpha base.
 ZMK_MACRO(mouse_clear_exit, wait-ms = <0>; tap-ms = <0>;
           bindings = <&macro_release &mkp RCLK &mkp MCLK &mkp LCLK
                       &macro_press &mouse_key_off LCTRL
                       &mouse_key_off LCTRL
                       &mouse_key_off LSHFT
                       &mouse_key_off LSHFT
-                      &mouse_key_off LALT &to DEF>;)
+                      &mouse_key_off LALT MOUSE_LAYERS_OFF>;)
 
 #define U_MS_U &mmv MOVE_UP
 #define U_MS_D &mmv MOVE_DOWN

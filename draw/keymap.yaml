@@ -37,6 +37,43 @@ layers:
     - {t: Smart, h: Num}
     - {t: Magic, h: Shift}
     - Right
+  Qwerty:
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - {t: A, h: Gui}
+    - {t: S, h: Alt}
+    - {t: D, h: Shift}
+    - {t: F, h: Ctrl}
+    - G
+    - H
+    - {t: J, h: Ctrl}
+    - {t: K, h: Shift}
+    - {t: L, h: Alt}
+    - {t: "'", h: Gui, s: '"'}
+    - Z
+    - X
+    - C
+    - V
+    - B
+    - N
+    - M
+    - {t: ',', s: ;}
+    - {t: ., s: ':'}
+    - {t: '?', s: '!'}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
+    - {type: trans}
   Nav:
     - Close
     - {type: trans}
@@ -154,8 +191,8 @@ layers:
     - BT 3
     - BT 4
     - BT CLR
-    - {type: trans}
-    - {type: trans}
+    - GAL
+    - QWE
     - {type: trans}
     - {type: trans}
     - {type: trans}
