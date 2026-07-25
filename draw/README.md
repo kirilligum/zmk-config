@@ -41,9 +41,9 @@ The script pins keymap-drawer 0.23.0 and constructs `overview.svg` by placing
 the default Gallium Base in the center of each key, Fn at top-left, Nav at
 top-right, Num at bottom-left, and Sys at bottom-right. Transparent, held, and
 repeated Base bindings are omitted from the corners. Combos are drawn as a
-separate keyboard below the compact overview, while Mouse Left and Mouse Right
-remain in the focused diagrams. `keymap.svg` retains the complete
-layer-by-layer breakdown, including QWERTY.
+separate second row, and the Right Pointer mouse layer is drawn as the third
+row. The focused diagrams retain both Mouse hands and Pointer/Scroll modes.
+`keymap.svg` retains the complete layer-by-layer breakdown, including QWERTY.
 
 The compact overview abbreviates screen brightness as `Bri↑` / `Bri↓` so the
 Fn legends fit in the key corners.

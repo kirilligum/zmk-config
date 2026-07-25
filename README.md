@@ -9,12 +9,13 @@ in [`build.yaml`](build.yaml).
 
 ## Keymap
 
-<img src="./overview.svg" alt="Compact Corne keymap: Base in the center, Fn at top-left, Nav at top-right, Num at bottom-left, Sys at bottom-right, and combos below" width="100%" />
+<img src="./overview.svg" alt="Compact Corne keymap: Base in the center, Fn at top-left, Nav at top-right, Num at bottom-left, Sys at bottom-right, with combos and the Right Pointer mouse layer below" width="100%" />
 
 The center legends are Base. Corner legends are **Fn** at top-left, **Nav** at
 top-right, **Num** at bottom-left, and **Sys** at bottom-right; the combo map is
-shown separately below the compact keyboard. Mouse is documented in its own
-diagrams. QWERTY appears in the [full layer-by-layer keymap](keymap.svg).
+shown separately in the second row, and the Right Pointer mouse layer is shown
+in the third. The focused Mouse diagrams document both hands and Pointer/Scroll
+modes. QWERTY appears in the [full layer-by-layer keymap](keymap.svg).
 
 The Base alpha block is Gallium Colstag on a US/QWERTY host layout:
 

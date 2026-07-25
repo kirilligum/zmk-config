@@ -50,7 +50,8 @@ jq_expr='
                 + (if $num == null then {} else {bl: $num} end)
                 + (if $sys == null then {} else {br: $sys} end)
         ],
-        Combos: .layers.Combos
+        Combos: .layers.Combos,
+        "Right Pointer": .layers["Mouse Right"]
     }
     | .combos = [.combos[] | .l = ["Combos"]]
 '
