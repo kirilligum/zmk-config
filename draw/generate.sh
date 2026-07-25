@@ -16,6 +16,10 @@ uvx --from keymap-drawer==0.23.0 keymap \
     -c draw/config.yaml draw draw/keymap.yaml -o keymap.svg
 
 jq_expr='
+    .[0] as $keymap
+    | .[1] as $mouse
+    | $keymap
+    |
     def extract_label:
         if type == "string" then . else .t end;
 
@@ -51,12 +55,20 @@ jq_expr='
                 + (if $sys == null then {} else {br: $sys} end)
         ],
         Combos: .layers.Combos,
-        "Right Pointer": .layers["Mouse Right"]
+        "Right Pointer": $mouse.layers["Right Pointer"]
     }
-    | .combos = [.combos[] | .l = ["Combos"]]
+    | .combos = (
+        [.combos[] | .l = ["Combos"]]
+        + [
+            $mouse.combos[]
+            | select(.l | index("Right Pointer"))
+            | .l = ["Right Pointer"]
+        ]
+    )
 '
 
-uvx --from yq==3.4.3 yq -y "$jq_expr" draw/keymap.yaml > "$overview_yaml"
+uvx --from yq==3.4.3 yq -y -s "$jq_expr" \
+    draw/keymap.yaml draw/mouse-layer.yaml > "$overview_yaml"
 uvx --from keymap-drawer==0.23.0 keymap \
     -c draw/config.yaml draw "$overview_yaml" -o overview.svg
 
