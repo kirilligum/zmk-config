@@ -187,6 +187,18 @@ Hold the Enter thumb for Fn, then press these physical positions:
 The prompt macros type without sending Enter. Press a prompt key again while it
 is typing to cancel it.
 
+## Switch debounce
+
+Both halves use a 10 ms press debounce and a 20 ms release debounce, configured
+globally in [`config/corne.conf`](config/corne.conf). The longer release window
+suppresses contact chatter that can otherwise turn one physical tap into two or
+three keypresses. These settings affect matrix scanning only; they do not change
+the Space/Nav hold-tap timing or any keymap behavior.
+
+If isolated taps still repeat after both halves are flashed, test USB versus
+Bluetooth and inspect or swap the affected switches before increasing the
+debounce further.
+
 ## Build
 
 The repository's GitHub Actions workflow builds both halves from `build.yaml`.
