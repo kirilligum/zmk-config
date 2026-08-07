@@ -176,6 +176,16 @@ shortcuts `Win+V` and `Win+Shift+S`.
   Tap/hold/double-tap Ctrl and Shift support both quick shortcuts and modified
   clicking without forcing one interaction style.
 
+### Surfingkeys with the free Gallium half
+
+The repo includes a browser-owned
+[`Gallium-left Surfingkeys profile`](surfingkeys/README.md) for navigating with
+the transparent left half while Mouse Right controls the pointer. It uses the
+Backspace thumb as a Surfingkeys Normal-mode leader, keeps Insert-mode typing
+unchanged, and requires no firmware or Mouse-layer change. The complete design
+and browser acceptance sequence are in the
+[`profile plan`](plans/gallium-surfingkeys-profile-plan.md).
+
 ## Prompt shortcuts
 
 Hold the Enter thumb for Fn, then press these physical positions:
