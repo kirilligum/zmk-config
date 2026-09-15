@@ -199,7 +199,7 @@ is typing to cancel it.
 
 ## Switch debounce
 
-Both halves use a 10 ms press debounce and a 20 ms release debounce, configured
+Both halves use a 10 ms press debounce and a 30 ms release debounce, configured
 globally in [`config/corne.conf`](config/corne.conf). The longer release window
 suppresses contact chatter that can otherwise turn one physical tap into two or
 three keypresses. These settings affect matrix scanning only; they do not change
